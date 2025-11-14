@@ -321,34 +321,34 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Animated Grid Background */}
         <AnimatedGrid opacity={0.05} />
 
         {/* Floating Particles Background */}
         <FloatingParticles />
 
-        {/* Animated Morphing Blobs */}
-        <MorphingBlob className="top-20 left-10 w-72 h-72" colors={['#3b82f6', '#06b6d4', '#10b981']} duration={8} />
+        {/* Animated Morphing Blobs - Hidden on mobile for better performance */}
+        <MorphingBlob className="hidden md:block top-20 left-10 w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72" colors={['#3b82f6', '#06b6d4', '#10b981']} duration={8} />
         <MorphingBlob
-          className="bottom-20 right-10 w-72 h-72"
+          className="hidden md:block bottom-20 right-10 w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72"
           colors={['#06b6d4', '#3b82f6', '#8b5cf6']}
           duration={10}
         />
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="w-full max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left side - Text */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
               <FadeIn>
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full">
+                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full text-xs sm:text-sm">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-semibold text-cyan-300">SESAME University • LIM3</span>
+                  <span className="font-semibold text-cyan-300">SESAME University • LIM3</span>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.1}>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <TextReveal variant="word" delay={0.2}>
                     {t.hero.title}
                   </TextReveal>
@@ -360,11 +360,11 @@ export default function Portfolio() {
               </FadeIn>
 
               <FadeIn delay={0.2}>
-                <p className="text-xl text-slate-300 leading-relaxed">{t.hero.description}</p>
+                <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">{t.hero.description}</p>
               </FadeIn>
 
               <FadeIn delay={0.3}>
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
                   <MagneticButton
                     onClick={() => scrollToSection("projects")}
                     variant="primary"
@@ -381,7 +381,7 @@ export default function Portfolio() {
               </FadeIn>
 
               <FadeIn delay={0.4}>
-                <div className="flex gap-6 pt-8">
+                <div className="flex gap-4 sm:gap-6 pt-6 sm:pt-8 justify-center lg:justify-start">
                   <a
                     href="https://github.com/mahdibrr"
                     target="_blank"
@@ -413,13 +413,13 @@ export default function Portfolio() {
 
             {/* Right side - Profile Image */}
             <FadeIn delay={0.2} direction="right">
-              <div className="relative animate-float">
+              <div className="relative animate-float max-w-md mx-auto lg:max-w-none mt-8 lg:mt-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
                 <GlassmorphicCard enableTilt enableGlow glowColor="from-blue-500 to-cyan-500">
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1762418984226%5B1%5D-0GuU3AYTPFoUAfJL6iO1sgPD1hxcLl.jpg"
                     alt="Mahdi Ben Rhouma Profile"
-                    className="w-full h-auto rounded-2xl object-cover"
+                    className="w-full h-auto rounded-2xl object-cover aspect-square sm:aspect-auto"
                   />
                 </GlassmorphicCard>
               </div>
@@ -429,29 +429,29 @@ export default function Portfolio() {
       </section>
 
       {/* Professional Introduction Section */}
-      <section className="py-16 px-4 border-t border-slate-700/50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 relative overflow-hidden">
         <AnimatedGrid opacity={0.03} />
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto relative z-10">
           <FadeIn>
-            <GlassmorphicCard className="p-8 md:p-12 group" enableTilt={false} glowColor="from-cyan-400 to-blue-400">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            <GlassmorphicCard className="p-6 sm:p-8 md:p-10 lg:p-12 group" enableTilt={false} glowColor="from-cyan-400 to-blue-400">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 {t.hero.introTitle}
               </h2>
-              <p className="text-lg text-slate-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
                 {t.hero.introDesc}
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4">
                 <div className="flex items-center gap-2 text-cyan-400">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-medium">5+ Projects Delivered</span>
+                  <span className="text-xs sm:text-sm font-medium">5+ Projects Delivered</span>
                 </div>
                 <div className="flex items-center gap-2 text-cyan-400">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-medium">Full-Stack Expertise</span>
+                  <span className="text-xs sm:text-sm font-medium">Full-Stack Expertise</span>
                 </div>
                 <div className="flex items-center gap-2 text-cyan-400">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  <span className="text-sm font-medium">Sesame University LIM3</span>
+                  <span className="text-xs sm:text-sm font-medium">Sesame University LIM3</span>
                 </div>
               </div>
             </GlassmorphicCard>
