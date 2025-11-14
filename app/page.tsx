@@ -619,27 +619,63 @@ export default function Portfolio() {
                   <div className="mt-8">
                     <ProjectCarousel
                       images={[
-                        "/projects/ghassla/Screenshot 2025-09-17 195926.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 195938.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 195949.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 195959.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200008.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200025.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200034.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200210.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200217.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200252.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200302.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200311.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 200320.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 202723.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 202732.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 203247.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 204009.png",
-                        "/projects/ghassla/Screenshot 2025-09-17 204029.png",
+                        "/ghassla/processed/ghassla_08.jpg", // Sign Up
+                        "/ghassla/processed/ghassla_09.jpg", // Sign In
+                        "/ghassla/processed/ghassla_03_a.jpg", // Homepage - Part 1
+                        "/ghassla/processed/ghassla_03_b.jpg", // Homepage - Part 2
+                        "/ghassla/processed/ghassla_03_c.jpg", // Homepage - Part 3
+                        "/ghassla/processed/ghassla_03_d.jpg", // Homepage - Part 4
+                        "/ghassla/processed/ghassla_02_a.jpg", // Services - Part 1
+                        "/ghassla/processed/ghassla_02_b.jpg", // Services - Part 2
+                        "/ghassla/processed/ghassla_02_c.jpg", // Services - Part 3
+                        "/ghassla/processed/ghassla_02_d.jpg", // Services - Part 4
+                        "/ghassla/processed/ghassla_01.jpg", // About Page
+                        "/ghassla/processed/ghassla_04.jpg", // Dashboard
+                        "/ghassla/processed/ghassla_05.jpg", // Profile - Notifications
+                        "/ghassla/processed/ghassla_06.jpg", // Profile - Security
+                        "/ghassla/processed/ghassla_07.jpg", // Profile - Personal Info
                       ]}
                       projectName="Ghassla Laundry Service"
                     />
+                  </div>
+
+                  {/* Live Demo Video */}
+                  <div className="mt-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <h4 className="text-2xl font-bold text-purple-300">
+                        {language === "en" ? "Live Demo" : "Démo en Direct"}
+                      </h4>
+                      <motion.div
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/50 rounded-full"
+                        animate={{
+                          scale: [1, 1.05, 1],
+                          opacity: [0.8, 1, 0.8],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                        </span>
+                        <span className="text-sm font-semibold text-purple-300">
+                          {language === "en" ? "Watch Demo" : "Voir la Démo"}
+                        </span>
+                      </motion.div>
+                    </div>
+                    <div className="relative rounded-xl overflow-hidden border-2 border-purple-400/50 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-shadow duration-300">
+                      <video
+                        controls
+                        className="w-full h-auto"
+                        poster="/ghassla/processed/ghassla_03_a.jpg"
+                      >
+                        <source src="/ghassla/Vidéo sans titre ‐ Réalisée avec Clipchamp.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
                 </div>
               </div>
