@@ -162,6 +162,41 @@ export default function Portfolio() {
 
   const t = translations[language]
 
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mahdi Ben Rhouma",
+    jobTitle: "Full-Stack Developer",
+    description: "Full-stack web developer specializing in React, Next.js, FastAPI, and Spring Boot",
+    url: "https://mahdibr.online",
+    email: "mahdi.benrhouma@sesame.com.tn",
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Sesame University",
+      description: "LIM3 - License in Multimedia Informatics specializing in Web"
+    },
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "FastAPI",
+      "Python",
+      "Spring Boot",
+      "Java",
+      "Node.js",
+      "Web Development",
+      "Full-Stack Development",
+      "Backend Development",
+      "Frontend Development"
+    ],
+    sameAs: [
+      "https://github.com/mahdibrr",
+      "https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/"
+    ]
+  }
+
   useEffect(() => {
     setMounted(true)
     const savedLanguage = localStorage.getItem("portfolio-language")
@@ -194,6 +229,11 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <CursorTrail />
       {/* Scroll Progress Bar */}
       <motion.div
