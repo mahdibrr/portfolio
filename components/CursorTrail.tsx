@@ -14,6 +14,7 @@ export function CursorTrail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointsRef = useRef<TrailPoint[]>([]);
   const idRef = useRef(0);
+  const lastTimeRef = useRef(0);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -33,6 +34,11 @@ export function CursorTrail() {
     let animationFrameId: number;
 
     const handleMouseMove = (e: MouseEvent) => {
+      // Throttle to ~60fps
+      const now = Date.now();
+      if (now - lastTimeRef.current < 16) return;
+      lastTimeRef.current = now;
+
       pointsRef.current.push({
         id: idRef.current++,
         x: e.clientX,
@@ -40,7 +46,7 @@ export function CursorTrail() {
         age: 0,
       });
 
-      if (pointsRef.current.length > 50) {
+      if (pointsRef.current.length > 30) {
         pointsRef.current.shift();
       }
     };

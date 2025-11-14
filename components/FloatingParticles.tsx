@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 export function FloatingParticles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
+  const particles = Array.from({ length: 10 }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 2,
     initialX: Math.random() * 100,
@@ -17,7 +17,7 @@ export function FloatingParticles() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-sm"
+          className="absolute rounded-full bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-sm will-change-transform"
           style={{
             width: particle.size,
             height: particle.size,

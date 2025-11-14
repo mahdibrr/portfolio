@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
+import dynamic from "next/dynamic"
 import { motion } from "framer-motion"
 import {
   Menu,
@@ -15,12 +17,8 @@ import {
   Briefcase,
   Globe,
 } from "lucide-react"
-import { ProjectCarousel } from "@/components/ProjectCarousel"
 import { AnimatedGradientText } from "@/components/AnimatedGradientText"
 import { FadeIn } from "@/components/FadeIn"
-import { FloatingParticles } from "@/components/FloatingParticles"
-import { MorphingBlob } from "@/components/MorphingBlob"
-import { CursorTrail } from "@/components/CursorTrail"
 import { TextReveal } from "@/components/TextReveal"
 import { MagneticButton } from "@/components/MagneticButton"
 import { GlassmorphicCard } from "@/components/GlassmorphicCard"
@@ -28,6 +26,12 @@ import { AnimatedGrid } from "@/components/AnimatedGrid"
 import { AnimatedSkillBar } from "@/components/AnimatedSkillBar"
 import { AnimatedCounter } from "@/components/AnimatedCounter"
 import { useScrollProgress } from "@/lib/animation-utils"
+
+// Lazy load heavy animation and below-fold components
+const FloatingParticles = dynamic(() => import("@/components/FloatingParticles").then(mod => ({ default: mod.FloatingParticles })), { ssr: false })
+const CursorTrail = dynamic(() => import("@/components/CursorTrail").then(mod => ({ default: mod.CursorTrail })), { ssr: false })
+const MorphingBlob = dynamic(() => import("@/components/MorphingBlob").then(mod => ({ default: mod.MorphingBlob })), { ssr: false })
+const ProjectCarousel = dynamic(() => import("@/components/ProjectCarousel").then(mod => ({ default: mod.ProjectCarousel })), { ssr: false })
 
 const translations = {
   en: {
@@ -228,12 +232,14 @@ export default function Portfolio() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white relative">
       {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      <FloatingParticles />
       <CursorTrail />
       {/* Scroll Progress Bar */}
       <motion.div
@@ -246,7 +252,7 @@ export default function Portfolio() {
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 relative ${
           isScrolled ? "bg-slate-900/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
         }`}
       >
@@ -322,114 +328,93 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Animated Grid Background */}
-        <AnimatedGrid opacity={0.05} />
-
-        {/* Floating Particles Background */}
-        <FloatingParticles />
-
-        {/* Animated Morphing Blobs - Hidden on mobile for better performance */}
-        <MorphingBlob className="hidden md:block top-20 left-10 w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72" colors={['#3b82f6', '#06b6d4', '#10b981']} duration={8} />
-        <MorphingBlob
-          className="hidden md:block bottom-20 right-10 w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72"
-          colors={['#06b6d4', '#3b82f6', '#8b5cf6']}
-          duration={10}
-        />
-
+        <div className="hidden md:block">
+          <MorphingBlob />
+        </div>
         <div className="w-full max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left side - Text */}
             <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
-              <FadeIn>
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full text-xs sm:text-sm">
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  <span className="font-semibold text-cyan-300">SESAME University • LIM3</span>
-                </div>
-              </FadeIn>
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full text-xs sm:text-sm">
+                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+                <span className="font-semibold text-cyan-300">SESAME University • LIM3</span>
+              </div>
 
-              <FadeIn delay={0.1}>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  <TextReveal variant="word" delay={0.2}>
-                    {t.hero.title}
-                  </TextReveal>
-                  <br />
-                  <AnimatedGradientText>
-                    {t.hero.titleHighlight}
-                  </AnimatedGradientText>
-                </h1>
-              </FadeIn>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+                {t.hero.title}
+                <br />
+                <AnimatedGradientText>
+                  {t.hero.titleHighlight}
+                </AnimatedGradientText>
+              </h1>
 
-              <FadeIn delay={0.2}>
-                <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">{t.hero.description}</p>
-              </FadeIn>
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">{t.hero.description}</p>
 
-              <FadeIn delay={0.3}>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
-                  <MagneticButton
-                    onClick={() => scrollToSection("projects")}
-                    variant="primary"
-                  >
-                    {t.hero.viewWork}
-                  </MagneticButton>
-                  <MagneticButton
-                    onClick={() => scrollToSection("contact")}
-                    variant="secondary"
-                  >
-                    {t.hero.getInTouch}
-                  </MagneticButton>
-                </div>
-              </FadeIn>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start">
+                <MagneticButton
+                  onClick={() => scrollToSection("projects")}
+                  variant="primary"
+                >
+                  {t.hero.viewWork}
+                </MagneticButton>
+                <MagneticButton
+                  onClick={() => scrollToSection("contact")}
+                  variant="secondary"
+                >
+                  {t.hero.getInTouch}
+                </MagneticButton>
+              </div>
 
-              <FadeIn delay={0.4}>
-                <div className="flex gap-4 sm:gap-6 pt-6 sm:pt-8 justify-center lg:justify-start">
-                  <a
-                    href="https://github.com/mahdibrr"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                    title="GitHub"
-                  >
-                    <Github size={28} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                    title="LinkedIn"
-                  >
-                    <Linkedin size={28} />
-                  </a>
-                  <a
-                    href="mailto:mahdi.benrhouma@sesame.com.tn"
-                    className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                    title="Email"
-                  >
-                    <Mail size={28} />
-                  </a>
-                </div>
-              </FadeIn>
+              <div className="flex gap-4 sm:gap-6 pt-6 sm:pt-8 justify-center lg:justify-start">
+                <a
+                  href="https://github.com/mahdibrr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
+                  title="GitHub"
+                >
+                  <Github size={28} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
+                  title="LinkedIn"
+                >
+                  <Linkedin size={28} />
+                </a>
+                <a
+                  href="mailto:mahdi.benrhouma@sesame.com.tn"
+                  className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
+                  title="Email"
+                >
+                  <Mail size={28} />
+                </a>
+              </div>
             </div>
 
             {/* Right side - Profile Image */}
-            <FadeIn delay={0.2} direction="right">
-              <div className="relative animate-float max-w-md mx-auto lg:max-w-none mt-8 lg:mt-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-2xl opacity-30 animate-pulse"></div>
-                <GlassmorphicCard enableTilt enableGlow glowColor="from-blue-500 to-cyan-500">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1762418984226%5B1%5D-0GuU3AYTPFoUAfJL6iO1sgPD1hxcLl.jpg"
-                    alt="Mahdi Ben Rhouma Profile"
-                    className="w-full h-auto rounded-2xl object-cover aspect-square sm:aspect-auto"
-                  />
-                </GlassmorphicCard>
+            <div className="relative max-w-md mx-auto lg:max-w-none mt-8 lg:mt-0">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-2xl opacity-30"></div>
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 backdrop-blur-sm bg-slate-800/30">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1762418984226%5B1%5D-0GuU3AYTPFoUAfJL6iO1sgPD1hxcLl.jpg"
+                  alt="Mahdi Ben Rhouma Profile"
+                  width={800}
+                  height={800}
+                  priority
+                  quality={90}
+                  className="w-full h-auto rounded-2xl object-cover aspect-square sm:aspect-auto"
+                />
               </div>
-            </FadeIn>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Professional Introduction Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 relative overflow-hidden z-10">
         <AnimatedGrid opacity={0.03} />
         <div className="max-w-5xl mx-auto relative z-10">
           <FadeIn>
@@ -604,12 +589,11 @@ export default function Portfolio() {
                   <div className="mt-8">
                     <ProjectCarousel
                       images={[
-                        "/projects/dispatching/Screenshot 2025-09-17 194505.png",
-                        "/projects/dispatching/Screenshot 2025-09-17 194544.png",
-                        "/projects/dispatching/Screenshot 2025-09-17 194552.png",
-                        "/projects/dispatching/Screenshot 2025-09-17 194700.png",
-                        "/projects/dispatching/Screenshot 2025-09-17 194709.png",
-                        "/projects/dispatching/Screenshot 2025-09-17 195117.png",
+                        "/projects/dispatching/Screenshot 2025-09-17 194544.webp",
+                        "/projects/dispatching/Screenshot 2025-09-17 194552.webp",
+                        "/projects/dispatching/Screenshot 2025-09-17 194700.webp",
+                        "/projects/dispatching/Screenshot 2025-09-17 194709.webp",
+                        "/projects/dispatching/Screenshot 2025-09-17 195117.webp",
                       ]}
                       projectName="FastAPI Dispatching App"
                     />
@@ -659,21 +643,21 @@ export default function Portfolio() {
                   <div className="mt-8">
                     <ProjectCarousel
                       images={[
-                        "/ghassla/processed/ghassla_08.jpg", // Sign Up
-                        "/ghassla/processed/ghassla_09.jpg", // Sign In
-                        "/ghassla/processed/ghassla_03_a.jpg", // Homepage - Part 1
-                        "/ghassla/processed/ghassla_03_b.jpg", // Homepage - Part 2
-                        "/ghassla/processed/ghassla_03_c.jpg", // Homepage - Part 3
-                        "/ghassla/processed/ghassla_03_d.jpg", // Homepage - Part 4
-                        "/ghassla/processed/ghassla_02_a.jpg", // Services - Part 1
-                        "/ghassla/processed/ghassla_02_b.jpg", // Services - Part 2
-                        "/ghassla/processed/ghassla_02_c.jpg", // Services - Part 3
-                        "/ghassla/processed/ghassla_02_d.jpg", // Services - Part 4
-                        "/ghassla/processed/ghassla_01.jpg", // About Page
-                        "/ghassla/processed/ghassla_04.jpg", // Dashboard
-                        "/ghassla/processed/ghassla_05.jpg", // Profile - Notifications
-                        "/ghassla/processed/ghassla_06.jpg", // Profile - Security
-                        "/ghassla/processed/ghassla_07.jpg", // Profile - Personal Info
+                        "/ghassla/processed/ghassla_08.webp", // Sign Up
+                        "/ghassla/processed/ghassla_09.webp", // Sign In
+                        "/ghassla/processed/ghassla_03_a.webp", // Homepage - Part 1
+                        "/ghassla/processed/ghassla_03_b.webp", // Homepage - Part 2
+                        "/ghassla/processed/ghassla_03_c.webp", // Homepage - Part 3
+                        "/ghassla/processed/ghassla_03_d.webp", // Homepage - Part 4
+                        "/ghassla/processed/ghassla_02_a.webp", // Services - Part 1
+                        "/ghassla/processed/ghassla_02_b.webp", // Services - Part 2
+                        "/ghassla/processed/ghassla_02_c.webp", // Services - Part 3
+                        "/ghassla/processed/ghassla_02_d.webp", // Services - Part 4
+                        "/ghassla/processed/ghassla_01.webp", // About Page
+                        "/ghassla/processed/ghassla_04.webp", // Dashboard
+                        "/ghassla/processed/ghassla_05.webp", // Profile - Notifications
+                        "/ghassla/processed/ghassla_06.webp", // Profile - Security
+                        "/ghassla/processed/ghassla_07.webp", // Profile - Personal Info
                       ]}
                       projectName="Ghassla Laundry Service"
                     />
@@ -710,7 +694,7 @@ export default function Portfolio() {
                       <video
                         controls
                         className="w-full h-auto"
-                        poster="/ghassla/processed/ghassla_03_a.jpg"
+                        poster="/ghassla/processed/ghassla_03_a.webp"
                       >
                         <source src="/ghassla/Vidéo sans titre ‐ Réalisée avec Clipchamp.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
@@ -822,7 +806,6 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 relative overflow-hidden">
         <AnimatedGrid opacity={0.03} />
-        <MorphingBlob className="top-1/4 left-1/4 w-96 h-96" colors={['#3b82f6', '#06b6d4', '#8b5cf6']} duration={12} />
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <FadeIn>
             <h2 className="text-4xl font-bold mb-8">{t.contact.title}</h2>

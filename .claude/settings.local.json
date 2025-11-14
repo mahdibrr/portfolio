@@ -8,7 +8,8 @@
       "Bash(magick:*)",
       "Bash(python process_images.py:*)",
       "Bash(node process-images.mjs:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "ask": []
