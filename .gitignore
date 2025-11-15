@@ -24,4 +24,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.tsnul
+next-env.d.ts
+
+# Windows null device
+nul
