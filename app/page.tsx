@@ -404,7 +404,7 @@ export default function Portfolio() {
                   width={800}
                   height={800}
                   priority
-                  quality={90}
+                  unoptimized
                   className="w-full h-auto rounded-2xl object-cover aspect-square sm:aspect-auto"
                 />
               </div>
@@ -589,11 +589,11 @@ export default function Portfolio() {
                   <div className="mt-8">
                     <ProjectCarousel
                       images={[
-                        "/projects/dispatching/Screenshot 2025-09-17 194544.webp",
-                        "/projects/dispatching/Screenshot 2025-09-17 194552.webp",
-                        "/projects/dispatching/Screenshot 2025-09-17 194700.webp",
-                        "/projects/dispatching/Screenshot 2025-09-17 194709.webp",
-                        "/projects/dispatching/Screenshot 2025-09-17 195117.webp",
+                        "/projects/dispatching/Screenshot 2025-09-17 194544.jpg",
+                        "/projects/dispatching/Screenshot 2025-09-17 194552.jpg",
+                        "/projects/dispatching/Screenshot 2025-09-17 194700.jpg",
+                        "/projects/dispatching/Screenshot 2025-09-17 194709.jpg",
+                        "/projects/dispatching/Screenshot 2025-09-17 195117.jpg",
                       ]}
                       projectName="FastAPI Dispatching App"
                     />
@@ -643,21 +643,16 @@ export default function Portfolio() {
                   <div className="mt-8">
                     <ProjectCarousel
                       images={[
-                        "/ghassla/processed/ghassla_08.webp", // Sign Up
-                        "/ghassla/processed/ghassla_09.webp", // Sign In
-                        "/ghassla/processed/ghassla_03_a.webp", // Homepage - Part 1
-                        "/ghassla/processed/ghassla_03_b.webp", // Homepage - Part 2
-                        "/ghassla/processed/ghassla_03_c.webp", // Homepage - Part 3
-                        "/ghassla/processed/ghassla_03_d.webp", // Homepage - Part 4
-                        "/ghassla/processed/ghassla_02_a.webp", // Services - Part 1
-                        "/ghassla/processed/ghassla_02_b.webp", // Services - Part 2
-                        "/ghassla/processed/ghassla_02_c.webp", // Services - Part 3
-                        "/ghassla/processed/ghassla_02_d.webp", // Services - Part 4
-                        "/ghassla/processed/ghassla_01.webp", // About Page
-                        "/ghassla/processed/ghassla_04.webp", // Dashboard
-                        "/ghassla/processed/ghassla_05.webp", // Profile - Notifications
-                        "/ghassla/processed/ghassla_06.webp", // Profile - Security
-                        "/ghassla/processed/ghassla_07.webp", // Profile - Personal Info
+                        "/ghassla/processed/ghassla_20.jpg", // Sign Up
+                        "/ghassla/processed/ghassla_19.jpg", // Sign In
+                        "/ghassla/processed/ghassla_18.jpg", // Dashboard
+                        "/ghassla/processed/ghassla_17.jpg", // Profile
+                        "/ghassla/processed/ghassla_16.jpg", // Settings
+                        "/ghassla/processed/ghassla_11.jpg", // Homepage
+                        "/ghassla/processed/ghassla_12.jpg", // Services
+                        "/ghassla/processed/ghassla_13.jpg", // About
+                        "/ghassla/processed/ghassla_14.jpg", // Features
+                        "/ghassla/processed/ghassla_15.jpg", // More Details
                       ]}
                       projectName="Ghassla Laundry Service"
                     />
@@ -694,7 +689,7 @@ export default function Portfolio() {
                       <video
                         controls
                         className="w-full h-auto"
-                        poster="/ghassla/processed/ghassla_03_a.webp"
+                        poster="/ghassla/processed/ghassla_11.jpg"
                       >
                         <source src="/ghassla/Vidéo sans titre ‐ Réalisée avec Clipchamp.mp4" type="video/mp4" />
                         Your browser does not support the video tag.

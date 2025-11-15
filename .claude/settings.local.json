@@ -9,7 +9,10 @@
       "Bash(python process_images.py:*)",
       "Bash(node process-images.mjs:*)",
       "Bash(node:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(taskkill:*)",
+      "Bash(nul)",
+      "Bash(Remove-Item -Force \".next/dev/lock\" -ErrorAction SilentlyContinue)"
     ],
     "deny": [],
     "ask": []

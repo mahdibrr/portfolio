@@ -71,6 +71,7 @@ export function ProjectCarousel({ images, projectName }: ProjectCarouselProps) {
                   src={image}
                   alt={`${projectName} screenshot ${index + 1}`}
                   fill
+                  unoptimized
                   className="object-contain p-2"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={index === 0}

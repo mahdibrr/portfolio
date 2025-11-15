@@ -2,11 +2,12 @@ import sharp from 'sharp';
 import { readdirSync, existsSync } from 'fs';
 import { join } from 'path';
 
-// Convert images to WebP format with 85% quality
+// Convert images to WebP format with 95% quality for enhanced sharpness
 async function convertToWebP(inputPath, outputPath) {
   try {
     await sharp(inputPath)
-      .webp({ quality: 85, effort: 6 })
+      .sharpen()
+      .webp({ quality: 95, effort: 6 })
       .toFile(outputPath);
     console.log(`✓ Converted: ${inputPath} → ${outputPath}`);
   } catch (error) {
