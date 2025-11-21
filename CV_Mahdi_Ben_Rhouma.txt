@@ -1,0 +1,140 @@
+================================================================================
+                            MAHDI BEN RHOUMA
+                    Full-Stack Developer & Web Specialist
+================================================================================
+
+COORDONNÉES
+--------------------------------------------------------------------------------
+Email       : mahdi.benrhouma@sesame.com.tn
+Site Web    : https://mahdibr.online
+GitHub      : https://github.com/mahdibrr
+LinkedIn    : https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/
+
+
+PROFIL PROFESSIONNEL
+--------------------------------------------------------------------------------
+Développeur web full-stack dévoué poursuivant mon diplôme LIM3 à l'Université
+Sesame. Avec une expertise couvrant les frameworks web modernes comme React et
+Next.js, des systèmes backend robustes avec FastAPI et Spring Boot, et des
+architectures de bases de données évolutives, je transforme les défis
+commerciaux complexes en solutions web élégantes et performantes. Mon travail
+allie créativité et excellence technique, offrant des plateformes prêtes pour
+la production qui génèrent un impact réel.
+
+
+FORMATION
+--------------------------------------------------------------------------------
+Licence en Informatique Multimédia spécialisée en Web (LIM3)
+Université Sesame | En cours
+
+Spécialisation : Technologies web modernes et développement full-stack
+
+
+EXPÉRIENCE PROFESSIONNELLE & PROJETS
+--------------------------------------------------------------------------------
+
+TRAVAIL EN HAUTEUR PLATFORM                                    [En Production]
+Plateforme web complète pour la gestion des travaux en hauteur
+URL : https://www.travailenhauteur.tn
+
+• Développement d'une plateforme complète de gestion des travaux en hauteur
+• Gestion de la documentation de sécurité et suivi de projets
+• Technologies : Next.js, React, TypeScript, Tailwind CSS, PostgreSQL, Node.js
+• Déploiement en production avec optimisation des performances
+
+
+FASTAPI DISPATCHING APPLICATION                          [En Développement]
+Application de dispatching en temps réel
+
+• Développement d'une application de dispatching avec fonctionnalités temps réel
+• Optimisation des requêtes de base de données pour performances accrues
+• Intégration WebSocket pour communication bidirectionnelle
+• Conception responsive pour utilisation mobile
+• Technologies : FastAPI, Python, WebSocket, React, PostgreSQL, Redis
+
+
+GHASSLA - PLATEFORME DE SERVICE DE LAVAGE                         [Terminé]
+Application web moderne pour service de lavage en ligne
+
+• Plateforme complète de service de lavage et blanchisserie en ligne
+• Système de planification de collectes et gestion des commandes
+• Suivi de livraison en temps réel
+• Technologies : React, Node.js, MongoDB, Express, Tailwind CSS, REST API
+
+
+PROJETS BACKEND SPRING BOOT
+Services backend évolutifs avec architecture microservices
+
+• Développement de services backend scalables avec Spring Boot
+• Conception et implémentation d'APIs REST
+• Architecture microservices et optimisation de base de données
+• Technologies : Spring Boot, Java, REST API, Microservices
+
+
+APPLICATIONS MOBILES
+Développement mobile cross-platform et natif
+
+• Développement d'applications mobiles cross-platform avec React Native
+• Développement Android natif avec Java et XML
+• Interface utilisateur responsive et performante
+
+
+COMPÉTENCES TECHNIQUES
+--------------------------------------------------------------------------------
+
+DÉVELOPPEMENT FRONTEND
+• Frameworks & Librairies : React, Next.js, TypeScript, JavaScript
+• Styling : Tailwind CSS, CSS3, HTML5
+• Animations : Framer Motion, CSS Animations
+
+DÉVELOPPEMENT BACKEND
+• Frameworks : FastAPI (Python), Spring Boot (Java), Node.js, Express
+• Langages : Python, Java, JavaScript/TypeScript
+• Architecture : REST APIs, WebSocket, Microservices, MVC Pattern
+
+BASES DE DONNÉES
+• SQL : PostgreSQL
+• NoSQL : MongoDB, Redis
+• ORM & Query Optimization
+
+OUTILS & TECHNOLOGIES
+• Version Control : Git, GitHub
+• Containerization : Docker
+• Développement Mobile : React Native, Android (Java, XML)
+• APIs : REST, WebSocket, GraphQL, OAuth
+
+ARCHITECTURE & CONCEPTION
+• Design Patterns : MVC, Microservices
+• API Design : RESTful Services, WebSocket Integration
+• Database Design : Normalization, Indexing, Query Optimization
+• Performance Optimization : Caching (Redis), Database Tuning
+
+
+RÉALISATIONS CLÉS
+--------------------------------------------------------------------------------
+• 5+ projets web livrés avec frameworks modernes et systèmes backend
+• Expertise dans l'écosystème React, Next.js, FastAPI et Spring Boot
+• Expérience en déploiement et gestion de plateformes en production
+• Développement d'applications temps réel avec WebSocket
+• Architecture et optimisation de bases de données relationnelles et NoSQL
+
+
+LANGUES
+--------------------------------------------------------------------------------
+• Français : Courant
+• Anglais : Professionnel
+• Arabe : Langue maternelle
+
+
+CENTRES D'INTÉRÊT
+--------------------------------------------------------------------------------
+• Veille technologique sur les nouvelles technologies web
+• Contribution à des projets open-source
+• Optimisation de performances et architecture logicielle
+• Innovation en développement web et expérience utilisateur
+
+
+================================================================================
+                    Disponible pour nouvelles opportunités
+            "Transforming complex challenges into elegant solutions"
+================================================================================

@@ -1,0 +1,56 @@
+Objet : Candidature au poste de Développeur Full Stack
+
+Madame, Monsieur,
+
+Actuellement en Licence d'Informatique Multimédia spécialisée en Web (LIM3) à l'Université Sesame, je me permets de vous adresser ma candidature pour le poste de Développeur Full Stack au sein d'ADVANCED Schema.
+
+Bien que mon niveau d'études actuel ne corresponde pas encore au BAC+5 requis, mon expérience pratique et mes réalisations concrètes témoignent d'une maîtrise avancée des technologies que vous recherchez. J'ai eu l'opportunité de développer et déployer plusieurs applications web en production, ce qui m'a permis d'acquérir une expertise solide en développement full-stack.
+
+MON EXPERTISE TECHNIQUE
+
+Je maîtrise l'intégralité des technologies mentionnées dans votre offre :
+- Frontend : JavaScript, TypeScript, HTML, CSS, React, Next.js
+- Backend : Python (FastAPI), Java (Spring Boot), Node.js
+- Bases de données : SQL (PostgreSQL), NoSQL (MongoDB)
+
+Cette polyvalence technologique se reflète dans mes réalisations :
+
+• Travail en Hauteur Platform (https://www.travailenhauteur.tn) : Plateforme web complète en production, développée avec Next.js, TypeScript, React et PostgreSQL. Gestion complète du cycle de développement jusqu'au déploiement.
+
+• Application de Dispatching FastAPI : Système temps réel avec WebSocket, optimisation de requêtes SQL, et architecture scalable avec Redis pour le caching.
+
+• Ghassla - Plateforme de Service : Application MERN stack complète (MongoDB, Express, React, Node.js) avec système de gestion de commandes en temps réel.
+
+CE QUE J'APPORTE À ADVANCED SCHEMA
+
+1. ADAPTABILITÉ TECHNOLOGIQUE : Comme vous le mentionnez, je crois fermement qu'un développeur qualifié peut s'adapter à toute technologie. Mon parcours le prouve : j'ai rapidement maîtrisé des écosystèmes variés (React, FastAPI, Spring Boot) et je suis constamment en veille technologique.
+
+2. CAPACITÉ À LIVRER : Mes projets en production démontrent ma capacité à concevoir des architectures robustes, à développer des fonctionnalités complexes, et à déployer des solutions scalables.
+
+3. APPROCHE FULL-STACK COMPLÈTE : De l'architecture backend avec microservices à l'intégration frontend avec animations performantes, je maîtrise l'ensemble de la chaîne de développement.
+
+4. AUTONOMIE ET ORGANISATION : Gestion autonome de projets complets, de la conception à la production, avec priorisation efficace des tâches.
+
+5. COMMUNICATION TECHNIQUE : Expérience du travail en équipe et capacité à dialoguer avec différentes fonctions (technique, fonctionnel, design). Maîtrise de l'anglais technique et professionnel.
+
+MOTIVATION ET VISION
+
+Ce qui me motive particulièrement chez ADVANCED Schema :
+- L'opportunité de travailler sur des produits innovants à forte valeur ajoutée
+- La culture d'amélioration continue et d'innovation
+- L'environnement qui valorise la capacité d'apprentissage autant que la maîtrise technique
+- La possibilité de réaliser des prototypes démontrant des fonctionnalités innovantes
+
+Je suis particulièrement enthousiaste à l'idée de contribuer au développement de vos solutions, d'apporter mes idées pour l'amélioration continue, et de continuer à apprendre au sein d'une équipe d'experts.
+
+Ma formation universitaire se poursuivant en parallèle, je suis ouvert aux différentes formules proposées (CDD, alternance, stage) qui permettraient de combiner mon développement académique et professionnel.
+
+Je serais ravi de vous rencontrer pour échanger sur la manière dont mes compétences techniques, mon expérience concrète et ma motivation peuvent contribuer au succès d'ADVANCED Schema.
+
+Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+Mahdi Ben Rhouma
+mahdi.benrhouma@sesame.com.tn
+Portfolio : https://mahdibr.online
+GitHub : https://github.com/mahdibrr
+LinkedIn : https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/

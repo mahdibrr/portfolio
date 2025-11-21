@@ -1,0 +1,56 @@
+Objet : Candidature au stage de Développeur Full Stack chez Citalid
+
+Madame, Monsieur,
+
+Actuellement en Licence d'Informatique Multimédia spécialisée en Web (LIM3) à l'Université Sesame, je me permets de vous adresser ma candidature pour le poste de stagiaire Développeur Full Stack au sein de Citalid.
+
+Passionné par le développement web et fort d'une expérience pratique significative, j'ai eu l'opportunité de concevoir et déployer plusieurs applications web en production. Cette expérience m'a permis d'acquérir une maîtrise complète des technologies full-stack modernes et une compréhension approfondie du cycle de développement logiciel.
+
+MON EXPERTISE TECHNIQUE
+
+Ma stack technologique couvre l'ensemble du spectre full-stack :
+- Frontend : React, Next.js, TypeScript, JavaScript, Tailwind CSS
+- Backend : FastAPI (Python), Spring Boot (Java), Node.js, Express
+- Bases de données : PostgreSQL, MongoDB, Redis
+- Outils : Git, Docker, REST APIs, WebSocket
+
+MES RÉALISATIONS CONCRÈTES
+
+• Travail en Hauteur Platform (https://www.travailenhauteur.tn) : Plateforme web complète actuellement en production, développée avec Next.js, TypeScript et PostgreSQL. Gestion de bout en bout du projet, de la conception architecturale au déploiement avec optimisation des performances.
+
+• Application de Dispatching en Temps Réel : Système de dispatching avec fonctionnalités temps réel utilisant FastAPI, WebSocket et Redis. Optimisation avancée des requêtes SQL et architecture scalable pour gérer un trafic important.
+
+• Ghassla - Plateforme de Service : Application web complète (stack MERN) avec système de gestion de commandes, planification et suivi de livraison en temps réel.
+
+CE QUE J'APPORTE À CITALID
+
+1. POLYVALENCE TECHNIQUE : Ma maîtrise de multiples frameworks et langages (React, FastAPI, Spring Boot) me permet de m'adapter rapidement aux technologies spécifiques de vos projets.
+
+2. EXPÉRIENCE EN PRODUCTION : Mes projets déployés démontrent ma capacité à concevoir des architectures robustes, à développer des fonctionnalités complexes et à livrer des solutions performantes.
+
+3. APPROCHE FULL-STACK : De la conception d'APIs REST à l'intégration frontend avec animations fluides, je maîtrise l'ensemble de la chaîne de développement moderne.
+
+4. AUTONOMIE ET RIGUEUR : Gestion autonome de projets complets avec une attention particulière à la qualité du code, aux performances et à l'expérience utilisateur.
+
+MOTIVATION
+
+Ce qui me motive particulièrement chez Citalid :
+- L'opportunité d'intégrer une entreprise innovante et de contribuer à des projets à forte valeur ajoutée
+- La possibilité d'approfondir mes compétences en développement full-stack au sein d'une équipe d'experts
+- L'environnement propice à l'apprentissage et à l'innovation technologique
+- Le défi de participer à la création de solutions web modernes et performantes
+
+Je suis convaincu que mon expérience pratique, ma passion pour le développement web et ma capacité d'apprentissage rapide me permettront de contribuer efficacement à vos projets dès le début du stage.
+
+Je serais ravi de vous rencontrer pour échanger sur la manière dont mes compétences techniques et ma motivation peuvent s'inscrire dans vos objectifs.
+
+Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+Mahdi Ben Rhouma
+mahdi.benrhouma@sesame.com.tn
++216 29 28 23 67
+Ariana, Tunisie
+
+Portfolio : https://mahdibr.online
+GitHub : https://github.com/mahdibrr
+LinkedIn : https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/

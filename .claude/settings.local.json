@@ -12,7 +12,8 @@
       "Bash(powershell:*)",
       "Bash(taskkill:*)",
       "Bash(nul)",
-      "Bash(Remove-Item -Force \".next/dev/lock\" -ErrorAction SilentlyContinue)"
+      "Bash(Remove-Item -Force \".next/dev/lock\" -ErrorAction SilentlyContinue)",
+      "Bash(\"app\\page.tsx.backup\")"
     ],
     "deny": [],
     "ask": []
