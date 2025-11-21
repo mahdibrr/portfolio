@@ -264,6 +264,7 @@ export default function Portfolio() {
   const [language, setLanguage] = useState<"en" | "fr">("en")
   const [mounted, setMounted] = useState(false)
   const [hoverNav, setHoverNav] = useState<string | null>(null)
+  const [showGhasslaVideo, setShowGhasslaVideo] = useState(false)
   const scrollProgress = useScrollProgress()
 
   const t = translations[language]
@@ -509,7 +510,7 @@ export default function Portfolio() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <SplitText delay={0.1}>{t.hero.title}</SplitText>
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
+                <span className="text-white">
                   <SplitText delay={0.2}>{t.hero.titleHighlight}</SplitText>
                 </span>
               </h1>
@@ -860,54 +861,67 @@ export default function Portfolio() {
                         />
                       </div>
 
-                      {/* Live Demo Video - Full Width - Hidden with Demo Indicator */}
-                      <div className="space-y-4 hidden">
-                        <div className="flex items-center justify-between">
-                          <h4 className="text-lg font-semibold text-slate-400 flex items-center gap-2">
-                            <Smartphone size={18} /> {language === "en" ? "Live Demo" : "Démo en Direct"}
-                          </h4>
-                          {/* Ping Animation */}
-                          <div className="flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                            </span>
-                            <span className="text-xs font-bold text-purple-300 uppercase">Live</span>
-                          </div>
-                        </div>
-
-                        <AmbientVideoPlayer
-                          src="/ghassla/Vidéo sans titre ‐ Réalisée avec Clipchamp.mp4"
-                          poster="/ghassla/processed/ghassla_11.jpg"
-                        />
-                      </div>
-
-                      {/* Demo Available Indicator */}
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="flex items-center justify-center"
-                      >
-                        <div className="relative group/demo cursor-pointer">
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 rounded-lg blur opacity-60 group-hover/demo:opacity-100 transition duration-1000 animate-pulse"></div>
-                          <div className="relative px-8 py-4 bg-slate-900 rounded-lg border border-purple-500/30 group-hover/demo:border-purple-500/60 transition-all">
-                            <div className="flex items-center justify-center gap-3">
-                              <span className="relative flex h-3 w-3">
+                      {/* Live Demo Video - Full Width - Conditionally Shown */}
+                      {showGhasslaVideo && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.5 }}
+                          className="space-y-4"
+                        >
+                          <div className="flex items-center justify-between">
+                            <h4 className="text-lg font-semibold text-slate-400 flex items-center gap-2">
+                              <Smartphone size={18} /> {language === "en" ? "Live Demo" : "Démo en Direct"}
+                            </h4>
+                            {/* Ping Animation */}
+                            <div className="flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full">
+                              <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                               </span>
-                              <span className="text-sm md:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 uppercase tracking-wide">
-                                {language === "en" ? "Live Demo Available" : "Démo en Direct Disponible"}
-                              </span>
-                              <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
-                              </span>
+                              <span className="text-xs font-bold text-purple-300 uppercase">Live</span>
                             </div>
                           </div>
-                        </div>
-                      </motion.div>
+
+                          <AmbientVideoPlayer
+                            src="/ghassla/Vidéo sans titre ‐ Réalisée avec Clipchamp.mp4"
+                            poster="/ghassla/processed/ghassla_11.jpg"
+                          />
+                        </motion.div>
+                      )}
+
+                      {/* Demo Available Indicator */}
+                      {!showGhasslaVideo && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                          className="flex items-center justify-center"
+                        >
+                          <button
+                            onClick={() => setShowGhasslaVideo(true)}
+                            className="relative group/demo cursor-pointer"
+                          >
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 rounded-lg blur opacity-60 group-hover/demo:opacity-100 transition duration-1000 animate-pulse"></div>
+                            <div className="relative px-8 py-4 bg-slate-900 rounded-lg border border-purple-500/30 group-hover/demo:border-purple-500/60 transition-all">
+                              <div className="flex items-center justify-center gap-3">
+                                <span className="relative flex h-3 w-3">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                                </span>
+                                <span className="text-sm md:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 uppercase tracking-wide">
+                                  {language === "en" ? "Watch Live Demo" : "Voir la Démo en Direct"}
+                                </span>
+                                <span className="relative flex h-3 w-3">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+                                </span>
+                              </div>
+                            </div>
+                          </button>
+                        </motion.div>
+                      )}
                     </div>
 
                   </div>
