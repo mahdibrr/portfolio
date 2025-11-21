@@ -4,11 +4,18 @@ export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://mahdibr.online'
 
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/', '/admin/'],
-    },
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/', '/private/'],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+    ],
     sitemap: `${baseUrl}/sitemap.xml`,
   }
 }
