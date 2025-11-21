@@ -13,7 +13,8 @@
       "Bash(taskkill:*)",
       "Bash(nul)",
       "Bash(Remove-Item -Force \".next/dev/lock\" -ErrorAction SilentlyContinue)",
-      "Bash(\"app\\page.tsx.backup\")"
+      "Bash(\"app\\page.tsx.backup\")",
+      "Bash(curl -I https://mahdibr.online)"
     ],
     "deny": [],
     "ask": []
