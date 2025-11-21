@@ -14,7 +14,9 @@
       "Bash(nul)",
       "Bash(Remove-Item -Force \".next/dev/lock\" -ErrorAction SilentlyContinue)",
       "Bash(\"app\\page.tsx.backup\")",
-      "Bash(curl -I https://mahdibr.online)"
+      "Bash(curl -I https://mahdibr.online)",
+      "Bash(findstr:*)",
+      "Bash(copy:*)"
     ],
     "deny": [],
     "ask": []

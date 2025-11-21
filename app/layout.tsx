@@ -243,19 +243,45 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: "/favicon.ico",
+        sizes: "32x32",
+        type: "image/x-icon",
+      },
+      {
         url: "/icon-light-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
         media: "(prefers-color-scheme: light)",
       },
       {
         url: "/icon-dark-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
         media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
       {
         url: "/icon.svg",
         type: "image/svg+xml",
       },
     ],
-    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 }
 
