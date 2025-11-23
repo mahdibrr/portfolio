@@ -102,9 +102,8 @@ function ProjectCarousel({ images, projectName }: { images: string[]; projectNam
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              index === selectedIndex ? 'w-6 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]' : 'w-1.5 bg-white/40'
-            }`}
+            className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'w-6 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]' : 'w-1.5 bg-white/40'
+              }`}
           />
         ))}
       </div>
@@ -368,18 +367,16 @@ export default function Portfolio() {
             ease: [0.25, 0.46, 0.45, 0.94],
             top: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }
           }}
-          className={`fixed z-50 left-1/2 -translate-x-1/2 ${
-            isScrolled
+          className={`fixed z-50 left-1/2 -translate-x-1/2 ${isScrolled
               ? "w-[90%] max-w-5xl"
               : "w-full max-w-full"
-          }`}
+            }`}
         >
           <motion.div
-            className={`relative flex items-center justify-between px-6 ${
-              isScrolled
+            className={`relative flex items-center justify-between px-6 ${isScrolled
                 ? "bg-slate-900/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-white/10"
                 : "bg-slate-900/70 backdrop-blur-lg border-b border-white/5"
-            }`}
+              }`}
             animate={{
               borderRadius: isScrolled ? "9999px" : "0px",
               paddingTop: isScrolled ? "0.5rem" : "0.75rem",
@@ -684,10 +681,10 @@ export default function Portfolio() {
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                 <div className="relative p-8 md:p-10">
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+                  <div className="flex flex-col gap-8">
 
                     {/* Content Side */}
-                    <div className="flex-1 space-y-6">
+                    <div className="w-full space-y-6">
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
                           <Globe size={32} className="text-white" />
@@ -727,18 +724,14 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    {/* Image/Visual Side */}
-                    <div className="flex-1 lg:max-w-lg w-full">
-                      <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-slate-950/50 group-hover:shadow-blue-500/10 transition-shadow">
-                        <Image
-                          src="https://www.travailenhauteur.tn/images/hero-bg.jpg"
-                          alt="Travail en Hauteur Platform"
-                          width={800}
-                          height={450}
-                          unoptimized
-                          className="w-full h-auto object-cover rounded-xl"
-                        />
-                      </div>
+                    {/* Live Preview Side */}
+                    <div className="w-full h-[600px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-white">
+                      <iframe
+                        src="https://www.travailenhauteur.tn"
+                        className="w-full h-full border-0"
+                        title="Travail en Hauteur Live Preview"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
                 </div>
@@ -758,22 +751,10 @@ export default function Portfolio() {
                 <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
                 <div className="relative p-8 md:p-10">
-                  <div className="flex flex-col-reverse lg:flex-row lg:items-start gap-8">
-
-                    {/* Carousel Side */}
-                    <div className="flex-1 lg:max-w-2xl w-full">
-                      <ProjectCarousel
-                        images={[
-                          "/projects/dispatching/Screenshot 2025-09-17 194544.jpg",
-                          "/projects/dispatching/Screenshot 2025-09-17 194552.jpg",
-                          "/projects/dispatching/Screenshot 2025-09-17 194700.jpg",
-                        ]}
-                        projectName="FastAPI App"
-                      />
-                    </div>
+                  <div className="flex flex-col gap-8">
 
                     {/* Content Side */}
-                    <div className="flex-1 space-y-6">
+                    <div className="w-full space-y-6">
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform duration-300">
                           <Server size={32} className="text-white" />
@@ -796,6 +777,18 @@ export default function Portfolio() {
                           </span>
                         ))}
                       </div>
+                    </div>
+
+                    {/* Carousel Side */}
+                    <div className="w-full">
+                      <ProjectCarousel
+                        images={[
+                          "/projects/dispatching/Screenshot 2025-09-17 194544.jpg",
+                          "/projects/dispatching/Screenshot 2025-09-17 194552.jpg",
+                          "/projects/dispatching/Screenshot 2025-09-17 194700.jpg",
+                        ]}
+                        projectName="FastAPI App"
+                      />
                     </div>
                   </div>
                 </div>
