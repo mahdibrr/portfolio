@@ -39,8 +39,8 @@ export function ProjectCarousel({ images, projectName }: ProjectCarouselProps) {
                 alt={`${projectName} screenshot ${index + 1}`}
                 width={1920}
                 height={1080}
-                unoptimized
-                priority={index === 0}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                 className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
               />
               {/* Gradient Overlay for text readability if needed */}

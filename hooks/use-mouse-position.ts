@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react"
+import { useGlobalMouse } from "@/lib/mouse-tracker"
 
+/**
+ * Hook for tracking mouse position
+ * Now uses centralized mouse tracker for better performance
+ */
 export function useMousePosition() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const updateMousePosition = (ev: MouseEvent) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY })
-    }
-
-    window.addEventListener("mousemove", updateMousePosition)
-    return () => window.removeEventListener("mousemove", updateMousePosition)
-  }, [])
-
-  return mousePosition
+  const mousePos = useGlobalMouse()
+  return { x: mousePos.x, y: mousePos.y }
 }

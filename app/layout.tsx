@@ -3,30 +3,36 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { WebVitalsReporter } from "@/components/WebVitalsReporter"
 import "./globals.css"
 
-import { Geist, Geist_Mono, Source_Serif_4, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 
-// Initialize fonts
-const _geist = V0_Font_Geist({
+// Initialize fonts with optimized configuration
+// Only load weights actually used in the application
+const geist = Geist({
   subsets: ['latin'],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"], // Removed 500 - not commonly used
   display: 'swap',
-})
-const _geistMono = V0_Font_Geist_Mono({
-  subsets: ['latin'],
-  weight: ["400", "500", "600", "700"],
-  display: 'swap',
+  variable: '--font-geist',
+  preload: true,
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 })
 
-const _sourceSerif_4 = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  weight: ["400", "600"], // Reduced weights for mono font
   display: 'swap',
+  variable: '--font-geist-mono',
+  preload: false, // Don't preload mono font - less critical
+  fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mahdibr.online'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "Mahdi Ben Rhouma - Full-Stack Developer Portfolio | Sesame University",
     template: "%s | Mahdi Ben Rhouma",
@@ -238,7 +244,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Replace with your actual verification code from Google Search Console
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "your-google-verification-code",
+    other: {
+      'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION || "your-bing-verification-code",
+    },
   },
   icons: {
     icon: [
@@ -296,11 +305,26 @@ export default function RootLayout({
         <link rel="preconnect" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
         <link rel="dns-prefetch" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload hero image for faster LCP - use imageSrcSet for responsive */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/profile.jpg"
+          fetchPriority="high"
+          type="image/jpeg"
+        />
+        {/* Geo-targeting meta tags for regional SEO - Requirements: 3.5, 3.6, 8.1 */}
+        <meta name="geo.region" content="TN" />
+        <meta name="geo.placename" content="Tunis, Tunisia" />
+        <meta name="geo.position" content="36.8065;10.1815" />
+        <meta name="ICBM" content="36.8065, 10.1815" />
+        <meta name="geo.target" content="TN, FR, BE, CH, CA, AE, SA" />
       </head>
-      <body className={`font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
         <SpeedInsights />
+        <WebVitalsReporter />
       </body>
     </html>
   )

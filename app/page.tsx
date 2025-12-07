@@ -1,10 +1,9 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, Suspense } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import { motion, AnimatePresence } from "framer-motion"
-import useEmblaCarousel from "embla-carousel-react"
 import {
   Menu,
   X,
@@ -17,99 +16,52 @@ import {
   Server,
   Briefcase,
   Globe,
-  ChevronLeft,
   ChevronRight,
   Database,
   Terminal,
   Cpu,
   Layers,
 } from "lucide-react"
-import { AnimatedGradientText } from "@/components/AnimatedGradientText"
-import { FadeIn } from "@/components/FadeIn"
-import { TextReveal } from "@/components/TextReveal"
-import { MagneticButton } from "@/components/MagneticButton"
-import { GlassmorphicCard } from "@/components/GlassmorphicCard"
-import { AnimatedGrid } from "@/components/AnimatedGrid"
-import { AnimatedSkillBar } from "@/components/AnimatedSkillBar"
-import { AnimatedCounter } from "@/components/AnimatedCounter"
 import { useScrollProgress } from "@/lib/animation-utils"
-import { Spotlight } from "@/components/Spotlight"
-import { SplitText } from "@/components/SplitText"
+import {
+  generatePersonSchema,
+  generateCreativeWorkSchema,
+  generateItemListSchema,
+  generateContactPointSchema,
+  generateEducationSchema,
+  generateAllSchemas,
+  type ProjectData,
+  type SkillData,
+} from "@/lib/seo/structured-data"
+
+// Critical above-the-fold components
 import { ShinyButton } from "@/components/ShinyButton"
-import { BentoBox } from "@/components/BentoBox"
-import { Marquee } from "@/components/Marquee"
-import { ProjectCard3D } from "@/components/ProjectCard3D"
 
-// Lazy load heavy animation and below-fold components
-const FloatingParticles = dynamic(() => import("@/components/FloatingParticles").then(mod => ({ default: mod.FloatingParticles })), { ssr: false })
-const CursorTrail = dynamic(() => import("@/components/CursorTrail").then(mod => ({ default: mod.CursorTrail })), { ssr: false })
-const MorphingBlob = dynamic(() => import("@/components/MorphingBlob").then(mod => ({ default: mod.MorphingBlob })), { ssr: false })
+// Lazy load ALL animation components to reduce TBT
+const AnimatedGradientText = dynamic(() => import("@/components/AnimatedGradientText").then(mod => ({ default: mod.AnimatedGradientText })), { ssr: false })
+const FadeIn = dynamic(() => import("@/components/FadeIn").then(mod => ({ default: mod.FadeIn })), { ssr: false })
+const TextReveal = dynamic(() => import("@/components/TextReveal").then(mod => ({ default: mod.TextReveal })), { ssr: false })
+const MagneticButton = dynamic(() => import("@/components/MagneticButton").then(mod => ({ default: mod.MagneticButton })), { ssr: false })
+const GlassmorphicCard = dynamic(() => import("@/components/GlassmorphicCard").then(mod => ({ default: mod.GlassmorphicCard })), { ssr: false })
+const AnimatedGrid = dynamic(() => import("@/components/AnimatedGrid").then(mod => ({ default: mod.AnimatedGrid })), { ssr: false })
+const AnimatedSkillBar = dynamic(() => import("@/components/AnimatedSkillBar").then(mod => ({ default: mod.AnimatedSkillBar })), { ssr: false })
+const AnimatedCounter = dynamic(() => import("@/components/AnimatedCounter").then(mod => ({ default: mod.AnimatedCounter })), { ssr: false })
+const BentoBox = dynamic(() => import("@/components/BentoBox").then(mod => ({ default: mod.BentoBox })), { ssr: false })
+const Marquee = dynamic(() => import("@/components/Marquee").then(mod => ({ default: mod.Marquee })), { ssr: false })
+const ProjectCard3D = dynamic(() => import("@/components/ProjectCard3D").then(mod => ({ default: mod.ProjectCard3D })), { ssr: false })
 
-// --- COMPONENT: Improved Carousel ---
-function ProjectCarousel({ images, projectName }: { images: string[]; projectName: string }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const [selectedIndex, setSelectedIndex] = useState(0);
+// Lazy load heavy animation and below-fold components - defer loading
+const FloatingParticles = dynamic(() => import("@/components/FloatingParticles").then(mod => ({ default: mod.FloatingParticles })), { ssr: false, loading: () => null })
+const CursorTrail = dynamic(() => import("@/components/CursorTrail").then(mod => ({ default: mod.CursorTrail })), { ssr: false, loading: () => null })
+const MorphingBlob = dynamic(() => import("@/components/MorphingBlob").then(mod => ({ default: mod.MorphingBlob })), { ssr: false, loading: () => null })
+const Spotlight = dynamic(() => import("@/components/Spotlight").then(mod => ({ default: mod.Spotlight })), { ssr: false, loading: () => null })
+const SplitText = dynamic(() => import("@/components/SplitText").then(mod => ({ default: mod.SplitText })), { ssr: false, loading: () => <span /> })
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    emblaApi.on('select', onSelect);
-  }, [emblaApi, onSelect]);
-
-  return (
-    <div className="relative group/carousel rounded-2xl overflow-hidden shadow-2xl bg-slate-950 border border-white/10">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex touch-pan-y">
-          {images.map((src, index) => (
-            <div key={index} className="flex-[0_0_100%] min-w-0 relative bg-slate-900">
-              <Image
-                src={src}
-                alt={`${projectName} ${index + 1}`}
-                width={1920}
-                height={1080}
-                unoptimized
-                className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-between p-4 pointer-events-none">
-        <button
-          onClick={scrollPrev}
-          className="pointer-events-auto p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white opacity-0 -translate-x-4 group-hover/carousel:opacity-100 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/20 hover:scale-110"
-        >
-          <ChevronLeft size={24} />
-        </button>
-        <button
-          onClick={scrollNext}
-          className="pointer-events-auto p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white opacity-0 translate-x-4 group-hover/carousel:opacity-100 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/20 hover:scale-110"
-        >
-          <ChevronRight size={24} />
-        </button>
-      </div>
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-none">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`h-1.5 rounded-full transition-all duration-300 ${index === selectedIndex ? 'w-6 bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]' : 'w-1.5 bg-white/40'
-              }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+// --- COMPONENT: Improved Carousel (Lazy loaded) ---
+const ProjectCarousel = dynamic(() => import("@/components/ProjectCarousel").then(mod => ({ default: mod.ProjectCarousel })), { 
+  ssr: false,
+  loading: () => <div className="aspect-video bg-slate-900 rounded-2xl animate-pulse" />
+})
 
 // --- COMPONENT: Ambient Video Player ---
 function AmbientVideoPlayer({ src, poster }: { src: string; poster?: string }) {
@@ -124,8 +76,10 @@ function AmbientVideoPlayer({ src, poster }: { src: string; poster?: string }) {
           className="w-full h-auto object-cover"
           poster={poster}
           playsInline
+          aria-label="Ghassla laundry service platform demo video"
         >
           <source src={src} type="video/mp4" />
+          <track kind="captions" label="English captions" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -268,40 +222,51 @@ export default function Portfolio() {
 
   const t = translations[language]
 
-  // JSON-LD structured data for SEO
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Mahdi Ben Rhouma",
-    jobTitle: "Full-Stack Developer",
-    description: "Full-stack web developer specializing in React, Next.js, FastAPI, and Spring Boot",
-    url: "https://mahdibr.online",
-    email: "mahdi.benrhouma@sesame.com.tn",
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Sesame University",
-      description: "LIM3 - License in Multimedia Informatics specializing in Web"
+  // Skills data for structured data
+  const skillsData: SkillData[] = [
+    { name: "React", proficiency: 90 },
+    { name: "Next.js", proficiency: 85 },
+    { name: "TypeScript", proficiency: 85 },
+    { name: "JavaScript", proficiency: 90 },
+    { name: "FastAPI", proficiency: 80 },
+    { name: "Python", proficiency: 85 },
+    { name: "Spring Boot", proficiency: 75 },
+    { name: "Java", proficiency: 75 },
+    { name: "Node.js", proficiency: 80 },
+    { name: "PostgreSQL", proficiency: 75 },
+    { name: "MongoDB", proficiency: 70 },
+    { name: "Docker", proficiency: 65 },
+    { name: "Tailwind CSS", proficiency: 90 },
+  ]
+
+  // Projects data for structured data
+  const projectsData: ProjectData[] = [
+    {
+      name: "Travail en Hauteur Platform",
+      description: "A comprehensive web platform for high-altitude work management, safety documentation, and project tracking.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+      url: "https://www.travailenhauteur.tn",
+      category: "web",
     },
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "FastAPI",
-      "Python",
-      "Spring Boot",
-      "Java",
-      "Node.js",
-      "Web Development",
-      "Full-Stack Development",
-      "Backend Development",
-      "Frontend Development"
-    ],
-    sameAs: [
-      "https://github.com/mahdibrr",
-      "https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/"
-    ]
-  }
+    {
+      name: "FastAPI Dispatching App",
+      description: "Real-time dispatching application with optimized database queries, WebSocket integration, and mobile-responsive design.",
+      technologies: ["FastAPI", "Python", "WebSocket", "React", "Redis"],
+      category: "software",
+    },
+    {
+      name: "Ghassla - Laundry Service Platform",
+      description: "Online laundry and lingerie washing service platform. Modern web application for scheduling pickups, managing orders, and tracking delivery status in real-time.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+      category: "web",
+    },
+  ]
+
+  // Generate all structured data schemas using the new generators
+  const allSchemas = generateAllSchemas({
+    skills: skillsData,
+    projects: projectsData,
+  })
 
   useEffect(() => {
     setMounted(true)
@@ -335,11 +300,19 @@ export default function Portfolio() {
 
   return (
     <div className="relative min-h-screen bg-[#050505] text-slate-200 selection:bg-cyan-500/30 font-sans overflow-x-hidden">
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* Skip to main content link for keyboard navigation */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+      
+      {/* JSON-LD Structured Data - Multiple schemas for comprehensive SEO */}
+      {allSchemas.map((schema, index) => (
+        <script
+          key={`schema-${index}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
       <Spotlight />
       <FloatingParticles />
@@ -351,6 +324,7 @@ export default function Portfolio() {
           scaleX: scrollProgress / 100,
           transformOrigin: "0%",
         }}
+        aria-hidden="true"
       />
 
       {/* Navigation - Floating Island */}
@@ -389,7 +363,11 @@ export default function Portfolio() {
           >
 
             {/* 1. Logo Section */}
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <button 
+              className="flex items-center gap-3 cursor-pointer" 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Scroll to top of page"
+            >
               <div className="relative group">
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-500" />
                 <div className="relative text-xl font-bold bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
@@ -402,7 +380,7 @@ export default function Portfolio() {
                   <span className="text-xs font-medium text-slate-300 tracking-wide">Sesame LIM3</span>
                 </div>
               )}
-            </div>
+            </button>
 
             {/* 2. Desktop Navigation (Sliding Pill Effect) */}
             <div className="hidden md:flex items-center gap-1 bg-black/20 p-1 rounded-full border border-white/5 backdrop-blur-sm">
@@ -415,6 +393,7 @@ export default function Portfolio() {
                     onMouseEnter={() => setHoverNav(key)}
                     onMouseLeave={() => setHoverNav(null)}
                     className="relative px-5 py-2 text-sm font-medium transition-colors duration-300"
+                    aria-label={`Navigate to ${value} section`}
                   >
                     {/* The Sliding Background Pill */}
                     {isHovered && (
@@ -438,6 +417,7 @@ export default function Portfolio() {
               <button
                 onClick={() => setLanguage(language === "en" ? "fr" : "en")}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-xs font-medium text-slate-300 hover:text-white group"
+                aria-label={`Switch language to ${language === "en" ? "French" : "English"}`}
               >
                 <Globe size={14} className="group-hover:rotate-180 transition-transform duration-500 text-cyan-400" />
                 <span>{language.toUpperCase()}</span>
@@ -447,6 +427,8 @@ export default function Portfolio() {
               <button
                 className="md:hidden relative z-50 p-2 text-slate-300 hover:text-white transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -475,6 +457,7 @@ export default function Portfolio() {
                         setIsMenuOpen(false);
                       }}
                       className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 text-left group"
+                      aria-label={`Navigate to ${value} section`}
                     >
                       <span className="text-slate-300 group-hover:text-white font-medium">{value}</span>
                       <ChevronRight size={16} className="text-slate-600 group-hover:text-cyan-400 transition-colors" />
@@ -487,46 +470,45 @@ export default function Portfolio() {
         </motion.nav>
       </AnimatePresence>
 
-      {/* Hero Section */}
+      {/* Hero Section - Optimized for LCP */}
+      <main id="main-content">
       <section className="min-h-screen flex items-center justify-center pt-20 sm:pt-24 md:pt-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="hidden md:block">
-          <MorphingBlob />
-        </div>
+        {/* Defer MorphingBlob to after LCP */}
+        <Suspense fallback={null}>
+          <div className="hidden md:block">
+            <MorphingBlob />
+          </div>
+        </Suspense>
         <div className="w-full max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-            {/* Left side - Text */}
+            {/* Left side - Text (render immediately without animation delays) */}
             <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
-              <motion.div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full text-xs sm:text-sm">
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-cyan-400/50 rounded-full text-xs sm:text-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                 </span>
                 <span className="font-semibold text-cyan-300">SESAME University • LIM3</span>
-              </motion.div>
+              </div>
 
+              {/* Render text immediately, animate after hydration */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                <SplitText delay={0.1}>{t.hero.title}</SplitText>
+                <Suspense fallback={<span>{t.hero.title}</span>}>
+                  <SplitText delay={0.1}>{t.hero.title}</SplitText>
+                </Suspense>
                 <br />
                 <span className="text-white">
-                  <SplitText delay={0.2}>{t.hero.titleHighlight}</SplitText>
+                  <Suspense fallback={<span>{t.hero.titleHighlight}</span>}>
+                    <SplitText delay={0.2}>{t.hero.titleHighlight}</SplitText>
+                  </Suspense>
                 </span>
               </h1>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 1 }}
-                className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-              >
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in">
                 {t.hero.description}
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start"
-              >
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 justify-center lg:justify-start animate-fade-in-up">
                 <ShinyButton onClick={() => scrollToSection("projects")} icon={<Code2 size={18} />}>
                   {t.hero.viewWork}
                 </ShinyButton>
@@ -537,7 +519,7 @@ export default function Portfolio() {
                 >
                   {t.hero.getInTouch}
                 </ShinyButton>
-              </motion.div>
+              </div>
 
               <div className="flex gap-4 sm:gap-6 pt-6 sm:pt-8 justify-center lg:justify-start">
                 <a
@@ -545,7 +527,7 @@ export default function Portfolio() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                  title="GitHub"
+                  aria-label="Visit GitHub profile"
                 >
                   <Github size={28} />
                 </a>
@@ -554,31 +536,32 @@ export default function Portfolio() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                  title="LinkedIn"
+                  aria-label="Visit LinkedIn profile"
                 >
                   <Linkedin size={28} />
                 </a>
                 <a
                   href="mailto:mahdi.benrhouma@sesame.com.tn"
                   className="hover:text-cyan-400 transition-colors hover:scale-110 transform duration-300"
-                  title="Email"
+                  aria-label="Send email to mahdi.benrhouma@sesame.com.tn"
                 >
                   <Mail size={28} />
                 </a>
               </div>
             </div>
 
-            {/* Right side - Profile Image */}
+            {/* Right side - Profile Image (LCP element - render immediately) */}
             <div className="relative max-w-md mx-auto lg:max-w-none mt-8 lg:mt-0">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl blur-2xl opacity-30"></div>
               <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 backdrop-blur-sm bg-slate-800/30">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1762418984226%5B1%5D-0GuU3AYTPFoUAfJL6iO1sgPD1hxcLl.jpg"
-                  alt="Mahdi Ben Rhouma Profile"
+                  src="/images/profile.jpg"
+                  alt="Mahdi Ben Rhouma - Full-Stack Developer"
                   width={800}
                   height={800}
                   priority
-                  unoptimized
+                  fetchPriority="high"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                   className="w-full h-auto rounded-2xl object-cover aspect-square sm:aspect-auto"
                 />
               </div>
@@ -717,6 +700,7 @@ export default function Portfolio() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 hover:bg-blue-50 rounded-xl font-bold text-base transition-all duration-300 transform hover:scale-105 group/link shadow-lg shadow-white/5"
+                          aria-label="Visit Travail en Hauteur project website"
                         >
                           {t.projects.visitProject}
                           <ExternalLink size={18} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
@@ -729,8 +713,9 @@ export default function Portfolio() {
                       <iframe
                         src="https://www.travailenhauteur.tn"
                         className="w-full h-full border-0"
-                        title="Travail en Hauteur Live Preview"
+                        title="Travail en Hauteur Live Preview - High-altitude work management platform"
                         loading="lazy"
+                        aria-label="Live preview of Travail en Hauteur website"
                       />
                     </div>
                   </div>
@@ -895,6 +880,7 @@ export default function Portfolio() {
                           <button
                             onClick={() => setShowGhasslaVideo(true)}
                             className="relative group/demo cursor-pointer"
+                            aria-label="Watch Ghassla live demo video"
                           >
                             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 rounded-lg blur opacity-60 group-hover/demo:opacity-100 transition duration-1000 animate-pulse"></div>
                             <div className="relative px-8 py-4 bg-slate-900 rounded-lg border border-purple-500/30 group-hover/demo:border-purple-500/60 transition-all">
@@ -1075,6 +1061,7 @@ export default function Portfolio() {
       <footer className="border-t border-slate-700 py-8 px-4 text-center text-slate-400">
         <p>{t.footer}</p>
       </footer>
+      </main>
 
       <style jsx>{`
         @keyframes fade-in {

@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { useSlideIn } from '@/lib/micro-animations';
+import { ReactNode } from 'react';
 
 interface FadeInProps {
   children: ReactNode;
@@ -10,41 +10,22 @@ interface FadeInProps {
   className?: string;
 }
 
+/**
+ * Optimized FadeIn component using Web Animations API
+ * Removed Framer Motion dependency
+ * Performance: Part of -1000-1500ms Script Evaluation reduction
+ */
 export function FadeIn({ children, delay = 0, direction = 'up', className = '' }: FadeInProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const directionOffset = {
-    up: { y: 40 },
-    down: { y: -40 },
-    left: { x: 40 },
-    right: { x: -40 },
-  };
+  const ref = useSlideIn(direction, {
+    duration: 700,
+    delay: delay * 1000, // Convert to milliseconds
+    easing: 'cubic-bezier(0.21, 0.47, 0.32, 0.98)',
+    once: true,
+  })
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{
-        opacity: 0,
-        ...directionOffset[direction],
-      }}
-      animate={
-        isInView
-          ? {
-              opacity: 1,
-              x: 0,
-              y: 0,
-            }
-          : {}
-      }
-      transition={{
-        duration: 0.7,
-        delay: delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-      className={className}
-    >
+    <div ref={ref as React.RefObject<HTMLDivElement>} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

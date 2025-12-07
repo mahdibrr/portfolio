@@ -43,58 +43,59 @@ export const characterVariants = {
 
 // Custom Hooks
 
+/**
+ * Hook for tracking cursor position
+ * Now uses centralized mouse tracker for better performance
+ */
 export const useCursorPosition = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  return position;
+  const { useGlobalMouse } = require('@/lib/mouse-tracker');
+  const mousePos = useGlobalMouse();
+  return { x: mousePos.x, y: mousePos.y };
 };
 
+/**
+ * Magnetic button effect using centralized mouse tracker
+ * Performance improved by removing individual mousemove listener
+ */
 export const useMagneticButton = (ref: React.RefObject<HTMLElement>) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const { useGlobalMouse } = require('@/lib/mouse-tracker');
+  const mousePos = useGlobalMouse();
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = element.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+    const rect = element.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
-      const distance = 100;
-      const x = e.clientX - centerX;
-      const y = e.clientY - centerY;
-      const magnitude = Math.sqrt(x * x + y * y);
+    const distance = 100;
+    const x = mousePos.x - centerX;
+    const y = mousePos.y - centerY;
+    const magnitude = Math.sqrt(x * x + y * y);
 
-      if (magnitude < distance) {
-        const force = 1 - magnitude / distance;
-        setOffset({
-          x: (x / magnitude) * force * 20,
-          y: (y / magnitude) * force * 20,
-        });
-      } else {
-        setOffset({ x: 0, y: 0 });
-      }
-    };
+    if (magnitude < distance) {
+      const force = 1 - magnitude / distance;
+      setOffset({
+        x: (x / magnitude) * force * 20,
+        y: (y / magnitude) * force * 20,
+      });
+    } else {
+      setOffset({ x: 0, y: 0 });
+    }
+  }, [ref, mousePos.x, mousePos.y]);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
 
     const handleMouseLeave = () => {
       setOffset({ x: 0, y: 0 });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
     element.addEventListener('mouseleave', handleMouseLeave);
-
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [ref]);
@@ -139,36 +140,42 @@ export const useParallax = (offset: number = 50) => {
   return { ref, yOffset };
 };
 
+/**
+ * Card tilt effect using centralized mouse tracker
+ * Performance improved by removing individual mousemove listener
+ */
 export const useCardTilt = (ref: React.RefObject<HTMLElement>) => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const { useGlobalMouse } = require('@/lib/mouse-tracker');
+  const mousePos = useGlobalMouse();
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = element.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+    const rect = element.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
-      const x = e.clientX - centerX;
-      const y = e.clientY - centerY;
+    const x = mousePos.x - centerX;
+    const y = mousePos.y - centerY;
 
-      const rotateX = (y / (rect.height / 2)) * 5;
-      const rotateY = (x / (rect.width / 2)) * 5;
+    const rotateX = (y / (rect.height / 2)) * 5;
+    const rotateY = (x / (rect.width / 2)) * 5;
 
-      setTilt({ x: rotateX, y: rotateY });
-    };
+    setTilt({ x: rotateX, y: rotateY });
+  }, [ref, mousePos.x, mousePos.y]);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
 
     const handleMouseLeave = () => {
       setTilt({ x: 0, y: 0 });
     };
 
-    element.addEventListener('mousemove', handleMouseMove);
     element.addEventListener('mouseleave', handleMouseLeave);
-
     return () => {
-      element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [ref]);

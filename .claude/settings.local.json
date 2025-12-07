@@ -16,7 +16,10 @@
       "Bash(\"app\\page.tsx.backup\")",
       "Bash(curl -I https://mahdibr.online)",
       "Bash(findstr:*)",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Bash(find:*)",
+      "Bash(npx:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
