@@ -12,7 +12,7 @@ All text and interactive elements meet the minimum contrast ratios:
 - **Normal text**: 4.5:1 contrast ratio
 - **Large text** (18pt+ or 14pt+ bold): 3:1 contrast ratio
 - **UI components**: 3:1 contrast ratio
-
+a
 #### Verified Color Combinations
 
 | Element | Foreground | Background | Ratio | Status |
