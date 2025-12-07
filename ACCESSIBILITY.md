@@ -10,7 +10,7 @@ The portfolio is designed to meet or exceed WCAG 2.1 Level AA standards for acce
 
 All text and interactive elements meet the minimum contrast ratios:
 - **Normal text**: 4.5:1 contrast ratio
-- **Large text** (18pt+ or 14pt+ bold): 3:1 contrast ratio
+- **Large text** (18pt+ or 14pt+ bold): 3:1 contrast ratioaa
 - **UI components**: 3:1 contrast ratio
 a
 #### Verified Color Combinations
