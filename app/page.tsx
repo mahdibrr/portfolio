@@ -720,16 +720,33 @@ export default function Portfolio() {
                         </div>
                       </div>
 
-                      {/* Live Preview Side */}
-                      <div className="w-full h-[600px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-white">
-                        <iframe
-                          src="https://www.travailenhauteur.tn"
-                          className="w-full h-full border-0"
-                          title="Travail en Hauteur Live Preview - High-altitude work management platform"
-                          loading="lazy"
-                          aria-label="Live preview of Travail en Hauteur website"
-                        />
-                      </div>
+                      {/* Live Preview — clickable browser mockup */}
+                      <a
+                        href="https://www.travailenhauteur.tn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl group/preview"
+                        aria-label="Visit Travail en Hauteur website"
+                      >
+                        <div className="bg-slate-800 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                          <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                          </div>
+                          <div className="flex-1 bg-slate-700/60 rounded-md px-3 py-1 text-xs text-slate-400 text-center">
+                            travailenhauteur.tn
+                          </div>
+                          <ExternalLink size={14} className="text-slate-500 group-hover/preview:text-blue-400 transition-colors" />
+                        </div>
+                        <div className="bg-gradient-to-br from-blue-900/30 to-slate-900 h-64 flex flex-col items-center justify-center gap-4">
+                          <Globe size={48} className="text-blue-400/60" />
+                          <div className="text-center">
+                            <p className="text-white font-semibold">travailenhauteur.tn</p>
+                            <p className="text-slate-400 text-sm mt-1">Click to visit live site →</p>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -792,16 +809,34 @@ export default function Portfolio() {
                         </div>
                       </div>
 
-                      {/* Live Preview Side */}
-                      <div className="w-full h-[600px] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-white">
-                        <iframe
-                          src="https://www.iloveblogs.blog"
-                          className="w-full h-full border-0"
-                          title="I Love Blogs Live Preview - Modern blogging platform"
-                          loading="lazy"
-                          aria-label="Live preview of I Love Blogs website"
-                        />
-                      </div>
+                      {/* Live Preview — clickable browser mockup */}
+                      <a
+                        href="https://www.iloveblogs.blog"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl group/preview"
+                        aria-label="Visit iloveblogs.blog website"
+                      >
+                        <div className="bg-slate-800 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                          <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                            <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                          </div>
+                          <div className="flex-1 bg-slate-700/60 rounded-md px-3 py-1 text-xs text-slate-400 text-center">
+                            iloveblogs.blog
+                          </div>
+                          <ExternalLink size={14} className="text-slate-500 group-hover/preview:text-rose-400 transition-colors" />
+                        </div>
+                        <div className="bg-gradient-to-br from-rose-900/30 to-slate-900 h-64 flex flex-col items-center justify-center gap-4">
+                          <div className="text-4xl">🤖</div>
+                          <div className="text-center">
+                            <p className="text-white font-semibold">iloveblogs.blog</p>
+                            <p className="text-slate-400 text-sm mt-1">143 referring domains · 209 pages indexed</p>
+                            <p className="text-rose-400 text-xs mt-2">Click to visit live site →</p>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </motion.div>

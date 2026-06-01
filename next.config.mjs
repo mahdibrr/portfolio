@@ -80,9 +80,27 @@ const nextConfig = {
   generateEtags: true,
   // Turbopack
   turbopack: {},
-  // Headers for caching
+  // Headers for caching + security
   async headers() {
     return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.ahrefs.com",
+              "connect-src 'self' https://api.web3forms.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://analytics.ahrefs.com https://vitals.vercel-analytics.com",
+              "img-src 'self' data: blob: https:",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "frame-src 'self' https://www.youtube.com https://player.vimeo.com",
+              "media-src 'self' blob:",
+            ].join('; '),
+          },
+        ],
+      },
       {
         source: '/images/:path*',
         headers: [
