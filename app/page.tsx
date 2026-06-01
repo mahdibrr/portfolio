@@ -92,40 +92,40 @@ const translations = {
     nav: { about: "About", projects: "Projects", skills: "Skills", contact: "Contact" },
     hero: {
       title: "Full-Stack Developer &",
-      titleHighlight: "Web Specialist",
+      titleHighlight: "AI Builder",
       description:
-        "Crafting exceptional web experiences with cutting-edge technologies. Specializing in modern web development, scalable backend systems, and enterprise solutions.",
+        "I ship production SaaS — autonomous AI pipelines, medical systems, safety platforms. Next.js + Supabase + TypeScript, deployed and running.",
       viewWork: "View My Work",
       getInTouch: "Get in Touch",
-      introTitle: "Web Developer, Problem Solver, Digital Innovator",
+      introTitle: "I build systems that run in production — not in demos.",
       introDesc:
-        "I'm Mahdi Ben Rhouma, a dedicated full-stack web developer pursuing my LIM3 degree at Sesame University. With expertise spanning modern web frameworks like React and Next.js, robust backend systems with FastAPI and Spring Boot, and scalable database architectures, I transform complex business challenges into elegant, performant web solutions. My work bridges creativity and technical excellence, delivering production-ready platforms that drive real-world impact—from enterprise work management systems to real-time dispatching applications and innovative digital service platforms.",
+        "I'm Mahdi Ben Rhouma, a full-stack developer pursuing my LIM3 degree at Sesame University. I've shipped a work-at-height safety compliance platform live in Tunisia, an autonomous AI content engine that generates and deploys articles daily, a full laundry-delivery SaaS, and a medical management system with a Java/Spring Boot backend. My stack is Next.js 15, TypeScript, Supabase, and PostgreSQL on the web side — Spring Boot and FastAPI on the backend. I write systems that handle real users, real data, and real edge cases.",
     },
     about: {
       title: "About Me",
       education: "Education",
       educationDesc:
         "License in Multimedia Informatics specializing in Web (LIM3) at Sesame University. Focused on modern web technologies and full-stack development.",
-      currentProject: "Current Project",
+      currentProject: "Current Focus",
       currentProjectDesc:
-        "Building a FastAPI dispatching application with real-time features, database optimization, and scalable architecture.",
-      experience: "Experience",
-      experienceDesc: "5+ web projects delivered with modern frameworks and backend systems. Expert in React, Next.js, FastAPI, and Spring Boot ecosystems.",
+        "Running an autonomous AI content pipeline on iloveblogs.blog — daily article generation, Telegram review flow, GitHub Actions deploy. 143 referring domains, 209 indexed pages.",
+      experience: "Track Record",
+      experienceDesc: "6+ production systems shipped. 143 referring domains built from zero in 5 months. Medical system, SaaS platforms, safety compliance tools — all live.",
     },
     projects: {
       title: "Featured Projects",
       travail: "Travail en Hauteur Platform",
       travailDesc:
         "A comprehensive Next.js web platform for high-altitude work management, safety documentation, and project tracking. Built with modern React technologies.",
-      iloveblogs: "I Love Blogs",
+      iloveblogs: "iloveblogs.blog — AI Content Engine",
       iloveblogsDesc:
-        "A modern blogging platform built with Next.js featuring SEO optimization, dynamic content management, and a beautiful reading experience.",
+        "Fully autonomous SEO content pipeline. AI generates articles, sends them to Telegram for review, and deploys to production on APPROVE — zero manual steps. Built with Next.js, GitHub Actions, Groq AI, and IndexNow. Grew from 0 to 143 referring domains in 5 months.",
       fastapi: "FastAPI Dispatching App",
       fastapiDesc:
         "Real-time dispatching application with optimized database queries, WebSocket integration, and mobile-responsive design.",
-      ghassla: "Ghassla - Laundry Service Platform",
+      ghassla: "Ghassla — On-Demand Laundry SaaS",
       ghasslaDesc:
-        "Online laundry and lingerie washing service platform. Modern web application for scheduling pickups, managing orders, and tracking delivery status in real-time.",
+        "Full-stack SaaS for laundry pickup and delivery. Customers schedule pickups, choose time windows, and track orders in real time. Complete order, driver, and delivery management backend. Built with Next.js, TypeScript, Supabase, and Stripe.",
       springboot: "Spring Boot Backend Projects",
       springbootDesc:
         "Scalable backend services with Spring Boot, REST APIs, microservices architecture, and database optimization.",
@@ -149,47 +149,46 @@ const translations = {
       githubProfile: "GitHub Profile",
       linkedinProfile: "LinkedIn",
     },
-    footer: "© 2025 Mahdi Ben Rhouma- Full-Stack Developer. All rights reserved.",
+    footer: "© 2026 Mahdi Ben Rhouma — Full-Stack Developer & AI Builder. All rights reserved.",
   },
   fr: {
     nav: { about: "À propos", projects: "Projets", skills: "Compétences", contact: "Contact" },
     hero: {
       title: "Développeur Full-Stack &",
-      titleHighlight: "Spécialiste Web",
+      titleHighlight: "Architecte IA",
       description:
-        "Création d'expériences web exceptionnelles avec des technologies de pointe. Spécialisé dans le développement web moderne, les systèmes backend évolutifs et les solutions d'entreprise.",
+        "Je livre des SaaS en production — pipelines IA autonomes, systèmes médicaux, plateformes de sécurité. Next.js + Supabase + TypeScript, déployés et opérationnels.",
       viewWork: "Voir Mes Travaux",
       getInTouch: "Me Contacter",
-      introTitle: "Développeur Web, Résolveur de Problèmes, Innovateur Numérique",
+      introTitle: "Je construis des systèmes qui tournent en production — pas en démo.",
       introDesc:
-        "Je suis Mahdi Ben Rhouma, un développeur web full-stack dévoué poursuivant mon diplôme LIM3 à l'Université Sesame. Avec une expertise couvrant les frameworks web modernes comme React et Next.js, des systèmes backend robustes avec FastAPI et Spring Boot, et des architectures de bases de données évolutives, je transforme les défis commerciaux complexes en solutions web élégantes et performantes. Mon travail allie créativité et excellence technique, offrant des plateformes prêtes pour la production qui génèrent un impact réel—des systèmes de gestion d'entreprise aux applications de dispatching en temps réel et aux plateformes de services numériques innovantes.",
+        "Je suis Mahdi Ben Rhouma, développeur full-stack en LIM3 à l'Université Sesame. J'ai livré une plateforme de sécurité travail en hauteur active en Tunisie, un moteur IA autonome qui génère et publie des articles chaque jour, un SaaS de livraison de blanchisserie complet, et un système médical avec backend Java/Spring Boot. Ma stack principale : Next.js 15, TypeScript, Supabase, PostgreSQL — et Spring Boot/FastAPI côté backend. J'écris des systèmes qui gèrent de vrais utilisateurs, de vraies données, et de vrais cas limites.",
     },
     about: {
       title: "À Propos de Moi",
       education: "Éducation",
       educationDesc:
         "Licence en Informatique Multimedia spécialisée en Web (LIM3) à l'Université Sesame. Axé sur les technologies web modernes et le d��veloppement full-stack.",
-      currentProject: "Projet Actuel",
+      currentProject: "Focus Actuel",
       currentProjectDesc:
-        "Développement d'une application de dispatching FastAPI avec des fonctionnalités en temps réel, optimisation de base de données et architecture scalable.",
-      experience: "Expérience",
-      experienceDesc:
-        "5+ projets web livrés avec des frameworks modernes et des systèmes backend. Expert dans les écosystèmes React, Next.js, FastAPI et Spring Boot.",
+        "Pipeline IA autonome sur iloveblogs.blog — génération d'articles quotidienne, revue Telegram, déploiement GitHub Actions. 143 domaines référents, 209 pages indexées.",
+      experience: "Bilan",
+      experienceDesc: "6+ systèmes en production livrés. 143 domaines référents construits de zéro en 5 mois. Système médical, SaaS, plateformes de conformité sécurité — tous actifs.",
     },
     projects: {
       title: "Projets Phares",
       travail: "Plateforme Travail en Hauteur",
       travailDesc:
         "Une plateforme web Next.js complète pour la gestion des travaux en hauteur, documentation de sécurité et suivi de projet. Construite avec des technologies React modernes.",
-      iloveblogs: "I Love Blogs",
+      iloveblogs: "iloveblogs.blog — Moteur IA de Contenu",
       iloveblogsDesc:
-        "Une plateforme de blogging moderne construite avec Next.js, featuring l'optimisation SEO, la gestion de contenu dynamique et une belle expérience de lecture.",
+        "Pipeline SEO entièrement autonome. L'IA génère les articles, les envoie sur Telegram pour validation, et déploie en production sur APPROVE — zéro étape manuelle. Next.js, GitHub Actions, Groq AI, IndexNow. De 0 à 143 domaines référents en 5 mois.",
       fastapi: "App Dispatching FastAPI",
       fastapiDesc:
         "Application de dispatching en temps réel avec requêtes de base de données optimisées, intégration WebSocket et conception responsive.",
-      ghassla: "Ghassla - Plateforme de Service de Lavage",
+      ghassla: "Ghassla — SaaS Blanchisserie à la Demande",
       ghasslaDesc:
-        "Plateforme en ligne de service de lavage de lingerie. Application web moderne pour la planification des collectes, la gestion des commandes et le suivi de livraison en temps réel.",
+        "SaaS full-stack pour la collecte et livraison de blanchisserie. Les clients planifient les collectes, choisissent les créneaux et suivent leurs commandes en temps réel. Backend complet de gestion des commandes, chauffeurs et livraisons. Next.js, TypeScript, Supabase, Stripe.",
       springboot: "Projets Backend Spring Boot",
       springbootDesc:
         "Services backend scalables avec Spring Boot, APIs REST, architecture microservices et optimisation de base de données.",
@@ -213,7 +212,7 @@ const translations = {
       githubProfile: "Profil GitHub",
       linkedinProfile: "LinkedIn",
     },
-    footer: "© 2025 Mahdi Ben Rhouma- Développeur Full-Stack. Tous droits réservés.",
+    footer: "© 2026 Mahdi Ben Rhouma — Développeur Full-Stack & Architecte IA. Tous droits réservés.",
   },
 }
 
@@ -900,7 +899,7 @@ export default function Portfolio() {
 
                       {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2">
-                        {["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"].map((tech) => (
+                        {["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Stripe", "Tailwind CSS"].map((tech) => (
                           <span key={tech} className="px-4 py-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-lg text-sm font-semibold text-purple-300 hover:bg-purple-500/20 transition-colors">
                             {tech}
                           </span>
