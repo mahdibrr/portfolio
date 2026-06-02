@@ -6,26 +6,26 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { WebVitalsReporter } from "@/components/WebVitalsReporter"
 import "./globals.css"
 
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Space_Grotesk } from 'next/font/google'
 
-// Initialize fonts with optimized configuration
-// Only load weights actually used in the application
-const geist = Geist({
+// Body font — Inter (highly readable sans-serif)
+const inter = Inter({
   subsets: ['latin'],
-  weight: ["400", "600", "700"], // Removed 500 - not commonly used
+  weight: ["400", "500", "600", "700"],
   display: 'swap',
-  variable: '--font-geist',
+  variable: '--font-inter',
   preload: true,
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
 })
 
-const geistMono = Geist_Mono({
+// Display font — Space Grotesk (distinctive headings & big numbers)
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ["400", "600"], // Reduced weights for mono font
+  weight: ["500", "600", "700"],
   display: 'swap',
-  variable: '--font-geist-mono',
-  preload: false, // Don't preload mono font - less critical
-  fallback: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace'],
+  variable: '--font-space-grotesk',
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
@@ -320,7 +320,7 @@ export default function RootLayout({
         <meta name="ICBM" content="36.8065, 10.1815" />
         <meta name="geo.target" content="TN, FR, BE, CH, CA, AE, SA" />
       </head>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
         <SpeedInsights />

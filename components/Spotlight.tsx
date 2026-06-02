@@ -52,7 +52,7 @@ export function Spotlight({ className = "" }: SpotlightProps) {
         isHovered ? "opacity-100" : "opacity-0"
       } ${className}`}
       style={{
-        background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(29, 78, 216, 0.15), transparent 80%)',
+        background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 102, 241, 0.12), transparent 80%)',
         '--mouse-x': '50%',
         '--mouse-y': '50%',
       } as React.CSSProperties}
