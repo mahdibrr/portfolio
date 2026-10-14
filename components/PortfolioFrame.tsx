@@ -109,7 +109,6 @@ export function PortfolioFrame({
             ["/writing/", ecosystemCopy[locale].writing],
             ["/tools/", ecosystemCopy[locale].tools],
             ["/resources/", ecosystemCopy[locale].resources],
-            ["/ecosystem/", ecosystemCopy[locale].map],
             ["/stats/iloveblogs/", ecosystemCopy[locale].stats],
             ["/about/", copy[locale].nav.about],
           ].map(([route, label]) => (

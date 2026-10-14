@@ -5,8 +5,6 @@ import {
   BookOpen,
   Wrench,
   Globe,
-  Github,
-  ExternalLink,
 } from "lucide-react";
 import { PortfolioFrame, JsonLd } from "./PortfolioFrame";
 import { BrowserPreview } from "./PortfolioPages";
@@ -35,7 +33,6 @@ export type DirectoryKind =
   | "writing"
   | "tools"
   | "resources"
-  | "ecosystem"
   | "stats/iloveblogs";
 export function directoryInfo(kind: DirectoryKind, locale: Locale) {
   const t = ecosystemCopy[locale];
@@ -60,11 +57,6 @@ export function directoryInfo(kind: DirectoryKind, locale: Locale) {
       title: t.resourcesTitle,
       italic: t.resourcesItalic,
       description: t.resourcesIntro,
-    },
-    ecosystem: {
-      title: t.mapTitle,
-      italic: t.mapItalic,
-      description: t.mapIntro,
     },
     "stats/iloveblogs": {
       title: t.statsTitle,
@@ -104,7 +96,6 @@ function Title({ kind, locale }: { kind: DirectoryKind; locale: Locale }) {
     writing: t.writing,
     tools: t.tools,
     resources: t.resources,
-    ecosystem: t.eyebrow,
     "stats/iloveblogs": t.stats,
   };
   return (
@@ -373,137 +364,11 @@ function ResourcesIndex({ locale }: { locale: Locale }) {
           {t.openSource}
           <ArrowRight size={17} aria-hidden="true" />
         </a>
-        <a className="text-link" href={routeFor(locale, "/ecosystem/")}>
-          {t.map}
+        <a className="text-link" href={routeFor(locale, "/tools/")}>
+          {t.tools}
           <ArrowRight size={17} aria-hidden="true" />
         </a>
       </div>
-    </>
-  );
-}
-function Connections({ locale }: { locale: Locale }) {
-  const t = ecosystemCopy[locale];
-  const journeys = [
-    {
-      name: t.journey1,
-      links: [
-        {
-          name: "Build Error Decoder",
-          url: publicationUrl + "/tools/nextjs-build-error-decoder",
-        },
-        {
-          name: "dev-error-explainers",
-          url: routeFor(locale, "/open-source/dev-error-explainers/"),
-        },
-        { name: "useSearchParams / Suspense", url: ecosystem.writing[1].url },
-      ],
-    },
-    {
-      name: t.journey2,
-      links: [
-        { name: "RLS Playground", url: ecosystem.tools[0].url },
-        { name: "RLS test example", url: sourceProjects[1].docs[0].url },
-        { name: "RLS debugging checklist", url: ecosystem.writing[3].url },
-      ],
-    },
-    {
-      name: t.journey3,
-      links: [
-        { name: t.stats, url: routeFor(locale, "/stats/iloveblogs/") },
-        { name: "iloveblogs.blog", url: routeFor(locale, "/work/iloveblogs/") },
-        {
-          name: "MDX Content Toolkit",
-          url: routeFor(locale, "/open-source/nextjs-seo-content-engine/"),
-        },
-      ],
-    },
-  ];
-  return (
-    <>
-      <div className="ecosystem-map">
-        <svg
-          viewBox="0 0 1000 450"
-          fill="none"
-          className="map-lines"
-          aria-hidden="true"
-        >
-          <path
-            d="M195 226C195 62 477 60 477 100M805 225C805 55 520 50 520 100M200 258C200 400 483 416 483 366M800 258C800 400 520 416 520 366"
-            stroke="currentColor"
-            strokeWidth="1.4"
-            strokeDasharray="5 7"
-          />
-          <path d="M300 242H700" stroke="currentColor" strokeWidth="1.4" />
-          <circle cx="500" cy="242" r="8" fill="currentColor" />
-        </svg>
-        <a className="map-node map-portfolio" href={routeFor(locale, "/work/")}>
-          <Globe size={27} aria-hidden="true" />
-          <span className="mono">mahdibr.online</span>
-          <strong>{t.siteNode}</strong>
-          <span>{t.siteBody}</span>
-          <ArrowUpRight size={19} aria-hidden="true" />
-        </a>
-        <a
-          className="map-node map-github"
-          href={identity.github}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Github size={27} aria-hidden="true" />
-          <span className="mono">github.com/mahdibrr</span>
-          <strong>{t.codeNode}</strong>
-          <span>{t.codeBody}</span>
-          <ArrowUpRight size={19} aria-hidden="true" />
-        </a>
-        <a
-          className="map-node map-publication"
-          href={publicationUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BookOpen size={27} aria-hidden="true" />
-          <span className="mono">iloveblogs.blog</span>
-          <strong>{t.blogNode}</strong>
-          <span>{t.blogBody}</span>
-          <ArrowUpRight size={19} aria-hidden="true" />
-        </a>
-        <a className="map-node map-tools" href={routeFor(locale, "/tools/")}>
-          <Wrench size={27} aria-hidden="true" />
-          <span className="mono">tools / source</span>
-          <strong>{t.toolNode}</strong>
-          <span>{t.toolBody}</span>
-          <ArrowUpRight size={19} aria-hidden="true" />
-        </a>
-      </div>
-      <section className="journeys">
-        <div className="directory-heading">
-          <h2>{t.journeys}</h2>
-        </div>
-        <p className="body-copy">{t.journeyIntro}</p>
-        <div className="journey-grid">
-          {journeys.map((journey, index) => (
-            <article key={journey.name}>
-              <span className="mono">0{index + 1}</span>
-              <h3>{journey.name}</h3>
-              <ol>
-                {journey.links.map((link) => (
-                  <li key={link.url}>
-                    <a
-                      href={link.url}
-                      {...(link.url.startsWith("http")
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                    >
-                      {link.name}
-                      <ArrowUpRight size={16} aria-hidden="true" />
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
@@ -743,8 +608,6 @@ export function DirectoryPage({
           <ToolsIndex locale={locale} />
         ) : kind === "resources" ? (
           <ResourcesIndex locale={locale} />
-        ) : kind === "ecosystem" ? (
-          <Connections locale={locale} />
         ) : (
           <Stats locale={locale} />
         )}

@@ -2,7 +2,7 @@
 
 The public site uses `lib/portfolio-seo.ts` for metadata and structured data.
 English and French have separate static routes, including the homepage, About,
-Services, four project pages, public-code case studies and connected resource
+Services, four project pages, public-code case studies and resource
 directories. Each page has a unique title and description,
 a self-referencing HTTPS canonical, reciprocal English/French hreflang links
 and an English x-default.
@@ -13,7 +13,8 @@ runs. Root navigation and case studies use ordinary crawlable links.
 
 ## Published files
 
-- `/sitemap.xml`: all 34 pages, with language alternatives.
+- `/sitemap.xml`: all 32 pages, with language alternatives.
+- `/_redirects`: the former ecosystem pages permanently redirect to About.
 - `/robots.txt`: search crawl rules and the canonical sitemap URL.
 - `/social/en/*.png` and `/social/fr/*.png`: actual 1200 × 630 sharing images.
 - `/manifest.webmanifest`: real icons and the current site colours.
@@ -31,6 +32,10 @@ LinkedIn profile and iloveblogs author page. Directories use ItemList where the
 visible items match the structured data. Ordinary links connect projects,
 source files, reading and browser tools; all pages are reachable within three
 clicks of their language homepage.
+
+There is no diagram or dedicated connections page. Author identity and project
+relationships remain in structured data and relevant contextual links, without
+hidden link blocks or different content for crawlers.
 
 The publication statistics are dated and sourced. Search Console clicks are
 not visitor counts, and editorial URLs in a sitemap are not an indexing count.

@@ -43,7 +43,7 @@
 .ecosystem-bridge {
   padding: 88px 0 75px;
 }
-.bridge-map-link {
+.bridge-more-link {
   margin-top: 20px;
 }
 .bridge-grid {
@@ -535,134 +535,6 @@
   font-size: 12px;
   color: var(--muted);
 }
-.ecosystem-map {
-  height: 500px;
-  position: relative;
-  margin-top: 55px;
-}
-.map-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: #a3b194;
-}
-.map-node {
-  position: absolute;
-  width: 260px;
-  min-height: 188px;
-  padding: 23px;
-  background: #f9f9f1;
-  border: 1px solid #ccd4c2;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  box-shadow: 0 9px 24px #2c3b2510;
-  transition:
-    transform 0.2s,
-    border-color 0.2s;
-}
-.map-node:hover {
-  transform: translateY(-4px);
-  border-color: var(--forest);
-}
-.map-node > .mono {
-  font-size: 8px;
-  color: var(--muted);
-}
-.map-node > strong {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.2;
-}
-.map-node > span:not(.mono) {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.8;
-}
-.map-node > svg:first-child {
-  color: var(--forest);
-}
-.map-node > svg:last-child {
-  position: absolute;
-  right: 18px;
-  top: 20px;
-  color: var(--forest);
-}
-.map-portfolio {
-  left: 2%;
-  top: 155px;
-}
-.map-github {
-  left: calc(50% - 130px);
-  top: 0;
-}
-.map-publication {
-  right: 2%;
-  top: 155px;
-  background: #eee9dd;
-}
-.map-tools {
-  left: calc(50% - 130px);
-  bottom: 0;
-  background: #eaf0e0;
-}
-.journeys {
-  margin-top: 70px;
-}
-.journeys > .body-copy {
-  font-size: 14px;
-  max-width: 640px;
-  color: var(--muted);
-}
-.journey-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 35px;
-  margin-top: 32px;
-}
-.journey-grid article {
-  border-top: 1px solid var(--line);
-  padding-top: 22px;
-}
-.journey-grid .mono {
-  color: var(--muted);
-}
-.journey-grid h3 {
-  font-size: 27px;
-  margin-top: 16px;
-}
-.journey-grid ol {
-  list-style: none;
-  margin: 23px 0 0;
-  padding: 0;
-  counter-reset: path;
-}
-.journey-grid li {
-  counter-increment: path;
-  padding: 11px 0;
-  border-bottom: 1px solid var(--line);
-}
-.journey-grid li > a {
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-}
-.journey-grid li > a:before {
-  content: counter(path);
-  font:
-    9px ui-monospace,
-    monospace;
-  color: var(--muted);
-}
-.journey-grid li svg {
-  margin-left: auto;
-  flex: none;
-}
 .stat-card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -939,19 +811,6 @@
   .source-art-label {
     font-size: 10px;
   }
-  .map-node {
-    width: 225px;
-  }
-  .map-github,
-  .map-tools {
-    left: calc(50% - 112px);
-  }
-  .map-portfolio {
-    left: 0;
-  }
-  .map-publication {
-    right: 0;
-  }
   .stat-card-grid {
     grid-template-columns: 1fr 1fr;
     gap: 36px 30px;
@@ -1045,30 +904,6 @@
     grid-column: 2;
     justify-self: start;
     padding: 0;
-  }
-  .ecosystem-map {
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-  .map-lines {
-    display: none;
-  }
-  .map-node {
-    position: relative;
-    inset: auto;
-    width: auto;
-    min-height: 225px;
-  }
-  .journey-grid {
-    gap: 25px;
-  }
-  .journey-grid h3 {
-    font-size: 23px;
-  }
-  .journey-grid li > a {
-    font-size: 11px;
   }
   .stats-methodology > div:not(.method-links) {
     grid-template-columns: 1fr;
@@ -1318,39 +1153,6 @@
   .resource-attribution {
     font-size: 11px;
     line-height: 1.9;
-  }
-  .ecosystem-map {
-    grid-template-columns: 1fr;
-    margin-top: 34px;
-    gap: 20px;
-  }
-  .map-node {
-    min-height: 0;
-    padding: 25px;
-    gap: 12px;
-  }
-  .map-node > strong {
-    font-size: 24px;
-  }
-  .map-node > span:not(.mono) {
-    font-size: 12px;
-  }
-  .map-node > .mono {
-    font-size: 9px;
-  }
-  .journeys {
-    margin-top: 40px;
-  }
-  .journey-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    margin-top: 28px;
-  }
-  .journey-grid h3 {
-    font-size: 27px;
-  }
-  .journey-grid li > a {
-    font-size: 13px;
   }
   .stat-card-grid {
     grid-template-columns: 1fr 1fr;

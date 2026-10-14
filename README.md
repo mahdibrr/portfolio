@@ -29,14 +29,17 @@ An active zone redirect rule, `94e376f048bc4b03b9d514cab58125b1`, sends WWW to t
 canonical HTTPS apex with status 301 and preserves paths and query strings.
 
 This project uses Direct Upload. GitHub pushes do not automatically deploy it.
-The site has 34 English and French pages, real project case studies,
+The site has 32 English and French pages, real project case studies,
 and a paper/forest visual palette. `npm run build:cf` prepares image assets,
 checks TypeScript and validates the exported SEO, links and media. See
 `SEO_SETUP.md` for the public metadata and indexing workflow.
-The connected sections include `/open-source/`, `/writing/`, `/tools/`,
-`/resources/`, `/ecosystem/` and `/stats/iloveblogs/`. The repository directory
+The sections include `/open-source/`, `/writing/`, `/tools/`,
+`/resources/` and `/stats/iloveblogs/`. The repository directory
 shows public GitHub projects, with forks and archives identified. Featured
 projects link to their source, documentation and related iloveblogs tools.
+Relationships live in ordinary relevant links and verified structured data.
+There is no visual ecosystem page; its former English and French URLs redirect
+permanently to About through `public/_redirects`.
 
 `data/ecosystem-snapshot.json` contains the dated public GitHub catalog, live
 sitemap counts and final Google Search Console click totals. The sanitized

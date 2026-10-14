@@ -293,25 +293,6 @@ const extraPages = [
     ],
   },
   {
-    key: "ecosystem",
-    en: [
-      "One developer.",
-      "Several ways to explore.",
-      "Projects / source code / writing / tools",
-    ],
-    fr: [
-      "Un développeur.",
-      "Plusieurs chemins à suivre.",
-      "Projets / code / articles / outils",
-    ],
-    lines: [
-      "FOLLOW THE CONNECTIONS",
-      "mahdibr.online / projects",
-      "GitHub / public source",
-      "iloveblogs / writing / tools",
-    ],
-  },
-  {
     key: "stats/iloveblogs",
     en: [
       "iloveblogs, in numbers.",

@@ -19,7 +19,6 @@ describe("Published portfolio sitemap", () => {
       "/writing/",
       "/tools/",
       "/resources/",
-      "/ecosystem/",
       "/stats/iloveblogs/",
     ];
     const expected = paths.flatMap((path) => [

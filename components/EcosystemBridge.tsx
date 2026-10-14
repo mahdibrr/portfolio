@@ -13,7 +13,9 @@ export function EcosystemBridge({ locale }: { locale: Locale }) {
     <section className="ecosystem-bridge shell">
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Code / Writing / Tools</p>
+          <p className="eyebrow">
+            {locale === "fr" ? "Code & articles" : "Code & writing"}
+          </p>
           <h2>
             {t.homeTitle}
             <br />
@@ -23,10 +25,10 @@ export function EcosystemBridge({ locale }: { locale: Locale }) {
         <div>
           <p className="section-intro">{t.homeIntro}</p>
           <a
-            className="text-link bridge-map-link"
-            href={routeFor(locale, "/ecosystem/")}
+            className="text-link bridge-more-link"
+            href={routeFor(locale, "/open-source/")}
           >
-            {t.explore}
+            {t.openSource}
             <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>
