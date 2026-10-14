@@ -93,7 +93,7 @@ export const seoConfig: SEOConfig = {
   author: {
     name: 'Mahdi Ben Rhouma',
     jobTitle: 'Full-Stack Developer',
-    email: 'mahdi.benrhouma@sesame.com.tn',
+    email: 'mehdi.benrhouma@esgitech.tn',
     image: '/images/profile.jpg',
     description: 'Full-stack developer with expertise in modern web technologies including React, Next.js, FastAPI, and Spring Boot.',
     alumniOf: {

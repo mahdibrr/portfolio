@@ -1,12 +1,25 @@
 {
   "github": {
-    "checkedAt": "2026-10-14T01:38:51.553Z",
+    "checkedAt": "2026-10-14T15:04:45.846Z",
     "profile": {
       "login": "mahdibrr",
       "url": "https://github.com/mahdibrr",
       "publicRepositories": 14
     },
     "repositories": [
+      {
+        "name": "nextjs-supabase-production-incidents",
+        "fullName": "mahdibrr/nextjs-supabase-production-incidents",
+        "url": "https://github.com/mahdibrr/nextjs-supabase-production-incidents",
+        "description": "Symptom-first index of Next.js + Supabase production incidents: root cause, fix, postmortems with detection SQL, and runnable broken/fixed examples (pgTAP, Vitest).",
+        "homepage": "https://www.iloveblogs.blog/hubs/nextjs-supabase",
+        "language": null,
+        "stars": 5,
+        "forks": 4,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-10-14T02:10:18Z"
+      },
       {
         "name": "dev-error-explainers",
         "fullName": "mahdibrr/dev-error-explainers",
@@ -18,7 +31,7 @@
         "forks": 1,
         "isFork": false,
         "isArchived": false,
-        "updatedAt": "2026-10-12T17:07:27Z"
+        "updatedAt": "2026-10-14T02:10:15Z"
       },
       {
         "name": "mahdibrr",
@@ -32,19 +45,6 @@
         "isFork": false,
         "isArchived": false,
         "updatedAt": "2026-10-08T16:41:59Z"
-      },
-      {
-        "name": "nextjs-supabase-production-incidents",
-        "fullName": "mahdibrr/nextjs-supabase-production-incidents",
-        "url": "https://github.com/mahdibrr/nextjs-supabase-production-incidents",
-        "description": "Symptom-first index of Next.js + Supabase production incidents: root cause, fix, postmortems with detection SQL, and runnable broken/fixed examples (pgTAP, Vitest).",
-        "homepage": "https://www.iloveblogs.blog/hubs/nextjs-supabase",
-        "language": null,
-        "stars": 5,
-        "forks": 4,
-        "isFork": false,
-        "isArchived": false,
-        "updatedAt": "2026-10-08T16:32:35Z"
       },
       {
         "name": "awesome-mcp-servers",
@@ -192,7 +192,7 @@
     ]
   },
   "publication": {
-    "checkedAt": "2026-10-14T01:38:51.553Z",
+    "checkedAt": "2026-10-14T15:04:45.846Z",
     "sitemapUrl": "https://www.iloveblogs.blog/sitemap-index.xml",
     "indexablePages": 344,
     "posts": 231,

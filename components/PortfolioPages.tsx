@@ -40,7 +40,9 @@ export function BrowserPreview({
               ? new URL(project.url).hostname
               : project.slug === "ghassla"
                 ? "ghassla / booking experience"
-                : "dispatching / interface study"}
+                : project.name +
+                  " / " +
+                  (locale === "fr" ? "aperçu local" : "local preview")}
           </span>
           <span className="browser-square" aria-hidden="true" />
         </div>
@@ -254,23 +256,38 @@ export function HomePage({ locale }: { locale: Locale }) {
             </article>
           ))}
         </div>
-        <article className="ongoing-project">
-          <div>
-            <span className="mono">04 / {projects[3].type[locale]}</span>
-            <h3>{projects[3].name}</h3>
-            <p>{projects[3].summary[locale]}</p>
-          </div>
-          <div className="ongoing-right">
-            <ProjectLabel project={projects[3]} locale={locale} />
+        <div className="recent-projects-row">
+          {projects.slice(3, 6).map((project) => (
             <a
-              className="text-link"
-              href={routeFor(locale, "/work/dispatching/")}
+              className="recent-project-card"
+              key={project.slug}
+              href={routeFor(locale, `/work/${project.slug}/`)}
             >
-              {t.caseLink}
-              <ArrowUpRight size={20} aria-hidden="true" />
+              <img
+                src={project.cover}
+                alt={project.imageAlt[locale]}
+                width={640}
+                height={360}
+                loading="lazy"
+              />
+              <span className="mono">{project.type[locale]}</span>
+              <h3>
+                {project.name}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </h3>
+              <p>{project.summary[locale]}</p>
             </a>
-          </div>
-        </article>
+          ))}
+        </div>
+        <a
+          className="text-link all-projects-link"
+          href={routeFor(locale, "/work/")}
+        >
+          {locale === "fr"
+            ? `Voir les ${projects.length} projets`
+            : `View all ${projects.length} projects`}
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
       </section>
       <section className="services-home" id="skills">
         <div className="shell services-home-grid">
@@ -393,12 +410,38 @@ export function ProjectPage({
             images={[project.cover, ...(project.gallery ?? [])]}
             alt={project.imageAlt[locale]}
             locale={locale}
+            captions={project.imageCaptions?.map((caption) => caption[locale])}
           />
         </div>
         <div className="case-content">
           <aside>
             <p className="eyebrow">{t.overview}</p>
             <p className="case-status-note">{project.note[locale]}</p>
+            {project.role && (
+              <dl className="case-facts">
+                <dt>{locale === "fr" ? "Mon rôle" : "My role"}</dt>
+                <dd>{project.role[locale]}</dd>
+                {project.period && (
+                  <>
+                    <dt>{locale === "fr" ? "Période" : "Period"}</dt>
+                    <dd>{project.period}</dd>
+                  </>
+                )}
+              </dl>
+            )}
+            {project.sourceUrl && (
+              <a
+                className="text-link"
+                href={project.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {locale === "fr"
+                  ? "Code public sur GitHub"
+                  : "Public source on GitHub"}
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            )}
           </aside>
           <div>
             <h2>{project.description[locale]}</h2>
@@ -431,6 +474,33 @@ export function ProjectPage({
             </video>
           </section>
         )}
+        {!!project.related?.length && (
+          <section className="project-related">
+            <p className="eyebrow">
+              {locale === "fr"
+                ? "À découvrir aussi"
+                : "Related work & resources"}
+            </p>
+            <div>
+              {project.related.map((link) => (
+                <a
+                  key={link.url}
+                  href={
+                    link.url.startsWith("/")
+                      ? routeFor(locale, link.url)
+                      : link.url
+                  }
+                  {...(link.url.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  {link.name[locale]}
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
         <div className="case-end">
           <a className="text-link" href={`${routeFor(locale)}#work`}>
             {t.allWork}
@@ -454,19 +524,21 @@ export function ServicesPage({ locale }: { locale: Locale }) {
       title: t.service1,
       body: t.service1Desc,
       stack: "React / Next.js / TypeScript",
-      project: projects[2],
+      project: projects.find((project) => project.slug === "bsk-le-robuste")!,
     },
     {
       title: t.service2,
       body: t.service2Desc,
-      stack: "Python / FastAPI / Java / Spring Boot",
-      project: projects[3],
+      stack: "Python / FastAPI / NestJS / PostgreSQL",
+      project: projects.find((project) => project.slug === "tukai")!,
     },
     {
       title: t.service3,
       body: t.service3Desc,
       stack: "HTML / CSS / Structured data / Cloudflare",
-      project: projects[1],
+      project: projects.find(
+        (project) => project.slug === "vtc-a-votre-service",
+      )!,
     },
   ];
   return (

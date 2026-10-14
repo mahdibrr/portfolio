@@ -2,7 +2,7 @@
 
 The public site uses `lib/portfolio-seo.ts` for metadata and structured data.
 English and French have separate static routes, including the homepage, About,
-Services, four project pages, public-code case studies and resource
+Services, eleven project pages, public-code case studies and resource
 directories. Each page has a unique title and description,
 a self-referencing HTTPS canonical, reciprocal English/French hreflang links
 and an English x-default.
@@ -13,7 +13,7 @@ runs. Root navigation and case studies use ordinary crawlable links.
 
 ## Published files
 
-- `/sitemap.xml`: all 32 pages, with language alternatives.
+- `/sitemap.xml`: all 46 pages, with language alternatives.
 - `/_redirects`: the former ecosystem pages permanently redirect to About.
 - `/robots.txt`: search crawl rules and the canonical sitemap URL.
 - `/social/en/*.png` and `/social/fr/*.png`: actual 1200 × 630 sharing images.
@@ -32,6 +32,11 @@ LinkedIn profile and iloveblogs author page. Directories use ItemList where the
 visible items match the structured data. Ordinary links connect projects,
 source files, reading and browser tools; all pages are reachable within three
 clicks of their language homepage.
+
+Person metadata includes current ESGITECH affiliation, Tukhnanutha membership
+and the current contact email. Team work uses an organization creator and a
+Person contributor. Client and personal cases retain the Person creator.
+Former Dispatching pages redirect permanently to their language Work index.
 
 There is no diagram or dedicated connections page. Author identity and project
 relationships remain in structured data and relevant contextual links, without

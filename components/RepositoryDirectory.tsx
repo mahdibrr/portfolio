@@ -8,25 +8,11 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
   const t = ecosystemCopy[locale];
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
-  const repos = ecosystem.github.repositories.filter((repo) => {
-    const matches = (
-      repo.name +
-      " " +
-      repo.description +
-      " " +
-      (repo.language || "")
-    )
-      .toLowerCase()
-      .includes(query.toLowerCase().trim());
-    return (
-      matches &&
-      (filter === "all" ||
-        (filter === "archived" && repo.isArchived) ||
-        (filter === "fork" && repo.isFork) ||
-        (filter === "original" && !repo.isFork && !repo.isArchived))
-    );
-  });
   const describe = (repo: (typeof ecosystem.github.repositories)[number]) => {
+    if (repo.name === "Mestir-plan-3d")
+      return locale === "fr"
+        ? "Concept de tyrolienne à Monastir : scène Three.js interactive et visualisation structurelle."
+        : "Monastir zipline concept with an interactive Three.js scene and structural visualization.";
     if (repo.name === "nextjs-seo-content-engine")
       return locale === "fr"
         ? "Instantané historique des scripts de scoring MDX, taxonomie, maillage et Search Console."
@@ -46,6 +32,25 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
         : "Browse the files and README in this public repository.")
     );
   };
+  const repos = ecosystem.github.repositories.filter((repo) => {
+    const matches = (
+      repo.name +
+      " " +
+      describe(repo) +
+      " " +
+      (repo.language || "")
+    )
+      .toLowerCase()
+      .includes(query.toLowerCase().trim());
+    return (
+      matches &&
+      (filter === "all" ||
+        (filter === "archived" && repo.isArchived) ||
+        (filter === "fork" && repo.isFork) ||
+        (filter === "original" && !repo.isFork && !repo.isArchived))
+    );
+  });
+
   return (
     <section className="repo-directory" id="repository-directory">
       <div className="directory-heading">
@@ -132,6 +137,7 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
                 repo.description &&
                 ![
                   "nextjs-seo-content-engine",
+                  "Mestir-plan-3d",
                   "portfolio",
                   "mahdibrr",
                 ].includes(repo.name)

@@ -29,7 +29,7 @@ An active zone redirect rule, `94e376f048bc4b03b9d514cab58125b1`, sends WWW to t
 canonical HTTPS apex with status 301 and preserves paths and query strings.
 
 This project uses Direct Upload. GitHub pushes do not automatically deploy it.
-The site has 32 English and French pages, real project case studies,
+The site has 46 English and French pages, 11 real project case studies,
 and a paper/forest visual palette. `npm run build:cf` prepares image assets,
 checks TypeScript and validates the exported SEO, links and media. See
 `SEO_SETUP.md` for the public metadata and indexing workflow.
@@ -39,7 +39,20 @@ shows public GitHub projects, with forks and archives identified. Featured
 projects link to their source, documentation and related iloveblogs tools.
 Relationships live in ordinary relevant links and verified structured data.
 There is no visual ecosystem page; its former English and French URLs redirect
-permanently to About through `public/_redirects`.
+permanently to About through `public/_redirects`. Dispatching is removed from
+the selection, sitemap and public media; its former URLs redirect to Work and
+its original screenshots are retained under `assets/retired-work/`.
+
+Current work covers Tukai, Tukai Pro, Tukhnanutha, Tukai Developers, VTC À Votre
+Service, BSK Le Robuste, the People local MVP and the Monastir 3D concept.
+Team cases identify Mahdi as a developer and team member. Private repositories
+stay private; the site links public products and verified public source only.
+Real captures are stored in `assets/project-captures/` and compressed into
+`public/images/work/` at build. People, BSK and concept screenshots use local previews.
+Galleries preserve the complete image proportions and offer a full-size link.
+Tukai Pro has one demonstration screenshot; its retired second image stays outside public assets.
+The profile states current studies at ESGITECH and uses
+`mehdi.benrhouma@esgitech.tn`; structured data matches those facts.
 
 `data/ecosystem-snapshot.json` contains the dated public GitHub catalog, live
 sitemap counts and final Google Search Console click totals. The sanitized

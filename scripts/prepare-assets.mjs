@@ -1,5 +1,11 @@
 import sharp from "sharp";
-import { mkdir, writeFile, readFile, copyFile } from "node:fs/promises";
+import {
+  mkdir,
+  writeFile,
+  readFile,
+  copyFile,
+  readdir,
+} from "node:fs/promises";
 import path from "node:path";
 
 const publicDir = path.resolve("public");
@@ -47,6 +53,13 @@ for (const [name, size] of [
   ["apple-icon.png", 180],
 ]) {
   await sharp(Buffer.from(icon)).resize(size, size).png().toFile(out(name));
+}
+const captures = await readdir("assets/project-captures");
+for (const file of captures.filter((file) => /\.(png|jpe?g)$/i.test(file))) {
+  await sharp(path.join("assets/project-captures", file))
+    .resize({ width: 1920, withoutEnlargement: true })
+    .webp({ quality: 88 })
+    .toFile(out("images/work/" + file.replace(/\.(png|jpe?g)$/i, ".webp")));
 }
 const pages = [
   {
@@ -124,21 +137,119 @@ const pages = [
     ],
     image: "images/work/travail-en-hauteur.webp",
   },
-  {
-    key: "dispatching",
-    en: [
-      "Dispatching",
-      "An interface in progress.",
-      "Operations interface / FastAPI & React",
-    ],
-    fr: [
-      "Dispatching",
-      "Une interface en cours.",
-      "Interface opérationnelle / FastAPI & React",
-    ],
-    image: "projects/dispatching/Screenshot 2025-09-17 194544.webp",
-  },
 ];
+pages.push(
+  ...[
+    {
+      key: "tukai",
+      en: [
+        "Tukai",
+        "AI workspace",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: ["Tukai", "Espace IA", "Développement full-stack / Mahdi Ben Rhouma"],
+      image: "images/work/tukai.webp",
+    },
+    {
+      key: "tukai-pro",
+      en: [
+        "Tukai Pro",
+        "Browser 3D & CAD editor",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "Tukai Pro",
+        "?diteur 3D & CAO",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/tukai-pro.webp",
+    },
+    {
+      key: "tukhnanutha",
+      en: [
+        "Tukhnanutha",
+        "Technology group website",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "Tukhnanutha",
+        "Site du groupe technologique",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/tukhnanutha.webp",
+    },
+    {
+      key: "tukai-developers",
+      en: [
+        "Tukai Developers",
+        "API, CLI & documentation",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "Tukai Developers",
+        "API, CLI & documentation",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/tukai-developers.webp",
+    },
+    {
+      key: "vtc-a-votre-service",
+      en: [
+        "VTC A Votre Service",
+        "Chauffeur service website",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "VTC A Votre Service",
+        "Site de chauffeur",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/vtc-a-votre-service.webp",
+    },
+    {
+      key: "bsk-le-robuste",
+      en: [
+        "BSK Le Robuste",
+        "Editorial brand & CMS",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "BSK Le Robuste",
+        "Site de marque & CMS",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/bsk-le-robuste.webp",
+    },
+    {
+      key: "people",
+      en: [
+        "People / JumPark",
+        "Staff platform / local MVP",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "People / JumPark",
+        "Plateforme équipe / MVP local",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/people.webp",
+    },
+    {
+      key: "monastir-3d",
+      en: [
+        "Monastir 3D",
+        "Interactive zipline concept",
+        "Full-stack development / Mahdi Ben Rhouma",
+      ],
+      fr: [
+        "Monastir 3D",
+        "Concept de tyrolienne interactif",
+        "Développement full-stack / Mahdi Ben Rhouma",
+      ],
+      image: "images/work/monastir-3d.webp",
+    },
+  ],
+);
 const extraPages = [
   {
     key: "work",

@@ -1,10 +1,11 @@
 import siteRoutes from "@/data/site-routes.json";
+import { currentProjects } from "./current-projects";
 export type Locale = "en" | "fr";
 export type Localized = { en: string; fr: string };
 
 export const identity = {
   name: "Mahdi Ben Rhouma",
-  email: "mahdi.benrhouma@sesame.com.tn",
+  email: "mehdi.benrhouma@esgitech.tn",
   github: "https://github.com/mahdibrr",
   linkedin: "https://www.linkedin.com/in/mahdi-ben-rhouma-180971357/",
   url: "https://mahdibr.online",
@@ -31,7 +32,7 @@ export const copy = {
     role: "Full-stack developer",
     location: "Based in Tunisia",
     available: "Open to projects & opportunities",
-    hero: "I build websites and web applications with Next.js, React and Python. Recent work includes a laundry booking flow, a multilingual company site, and tools for debugging production errors.",
+    hero: "I build AI products, web applications and tools for the browser. I’m a developer with the Tukhnanutha team, currently studying at ESGITECH in Tunisia.",
     explore: "Explore my work",
     aboutLink: "A little about me",
     scroll: "Scroll to explore",
@@ -39,7 +40,7 @@ export const copy = {
     workTitle: "Work I’ve built.",
     workItalic: "What went into it.",
     workIntro:
-      "A few projects that show how I approach interfaces, content and the details that make a website useful.",
+      "Recent work across AI workspaces, 3D tools, developer platforms and client websites. Open a project for the real screens, my role and the details behind it.",
     caseLink: "Explore the project",
     visit: "Visit the website",
     allWork: "Back to selected work",
@@ -71,9 +72,9 @@ export const copy = {
     aboutTitle: "A developer who cares",
     aboutItalic: "about the whole picture.",
     aboutIntro:
-      "I’m Mahdi, a developer based in Tunisia with a background in web development at Sesame University. I enjoy working where a practical problem meets a clear, usable interface.",
+      "I’m Mahdi, a full-stack developer based in Tunisia and a student at ESGITECH. I work with the Tukhnanutha team on Tukai and its web products.",
     aboutBody:
-      "My work ranges from a laundry booking prototype to a multilingual company website and a publication for developers. Each has a different audience, and each asks for a different kind of care.",
+      "My recent work spans AI interfaces, developer documentation, browser-based 3D tools and websites for real businesses. I also maintain iloveblogs and public tools for debugging developer errors.",
     aboutCta: "More about me",
     languages: "Working in English & French",
     contactLabel: "04 / Start a conversation",
@@ -124,14 +125,14 @@ export const copy = {
       {
         question: "Where can I see your work?",
         answer:
-          "The selected project pages include screenshots, implementation notes and links to live websites where available. The featured product repositories are private.",
+          "The selected project pages include real screenshots, my role, implementation notes and links to the live products where available. Public libraries and examples are in the Open source section.",
       },
     ],
     aboutPageIntro:
       "I’m a full-stack developer based in Tunisia. I work across the visible interface and the code behind it, with a particular interest in web products that make a practical task easier.",
     background: "Background",
     backgroundBody:
-      "My background is in Multimedia Informatics and web development at Sesame University. My toolkit includes React and Next.js for interfaces, TypeScript for application code, and FastAPI and Spring Boot for backend work.",
+      "I currently study at ESGITECH. Alongside my studies, I work as a developer and team member with Tukhnanutha, contributing to Tukai, developer tooling and web platforms. My toolkit includes React, Next.js, TypeScript, Python, FastAPI, NestJS, PostgreSQL and Three.js.",
     approach: "What I pay attention to",
     approachBody:
       "The flow through a page, a useful error message, the way a form behaves on a phone, or the structure of a piece of content. Those details are part of the product, and I like working through them alongside the larger technical decisions.",
@@ -154,7 +155,7 @@ export const copy = {
     role: "Développeur full-stack",
     location: "Basé en Tunisie",
     available: "Ouvert aux projets & opportunités",
-    hero: "Je développe des sites et applications web avec Next.js, React et Python. Parmi mes projets : un parcours de réservation de pressing, un site d’entreprise multilingue et des outils de dépannage en production.",
+    hero: "Je développe des produits IA, des applications web et des outils pour le navigateur. Développeur dans l’équipe Tukhnanutha, j’étudie actuellement à ESGITECH en Tunisie.",
     explore: "Découvrir mes projets",
     aboutLink: "Quelques mots sur moi",
     scroll: "Explorer la suite",
@@ -162,7 +163,7 @@ export const copy = {
     workTitle: "Des projets concrets.",
     workItalic: "Le travail derrière.",
     workIntro:
-      "Quelques projets pour découvrir mon approche des interfaces, du contenu et des détails qui rendent un site utile.",
+      "Mes travaux récents : espaces IA, outils 3D, plateformes pour développeurs et sites clients. Découvrez les vraies interfaces, mon rôle et les détails de chaque projet.",
     caseLink: "Découvrir le projet",
     visit: "Visiter le site",
     allWork: "Revenir aux projets",
@@ -194,9 +195,9 @@ export const copy = {
     aboutTitle: "Un développeur attentif",
     aboutItalic: "à l’ensemble du produit.",
     aboutIntro:
-      "Je suis Mahdi, développeur basé en Tunisie, avec une formation en développement web à l’Université Sesame. J’aime relier un besoin concret à une interface claire et agréable.",
+      "Je suis Mahdi, développeur full-stack basé en Tunisie et étudiant à ESGITECH. Je travaille avec l’équipe Tukhnanutha sur Tukai et ses produits web.",
     aboutBody:
-      "Mes projets vont d’un prototype de réservation de pressing à un site d’entreprise multilingue et une publication pour développeurs. Chaque public appelle une approche différente.",
+      "Mes travaux récents couvrent les interfaces IA, la documentation développeur, les outils 3D dans le navigateur et les sites d’entreprise. Je maintiens aussi iloveblogs et des outils publics de dépannage pour développeurs.",
     aboutCta: "En savoir plus",
     languages: "Travail en français & en anglais",
     contactLabel: "04 / Commençons une conversation",
@@ -247,14 +248,14 @@ export const copy = {
       {
         question: "Où puis-je voir vos projets ?",
         answer:
-          "Les pages projets présentent des captures réelles, des notes de réalisation et des liens vers les sites publics lorsqu’ils existent. Les dépôts des produits présentés sont privés.",
+          "Les pages projets présentent des captures réelles, mon rôle, des notes de réalisation et des liens vers les produits en ligne. Les bibliothèques et exemples publics sont dans la section Open source.",
       },
     ],
     aboutPageIntro:
       "Je suis développeur full-stack, basé en Tunisie. Je travaille sur l’interface visible comme sur le code qui la fait fonctionner, avec un intérêt particulier pour les produits web qui simplifient une tâche concrète.",
     background: "Parcours",
     backgroundBody:
-      "Mon parcours est en Informatique Multimédia et développement web à l’Université Sesame. J’utilise React et Next.js pour les interfaces, TypeScript pour le code applicatif, ainsi que FastAPI et Spring Boot pour le backend.",
+      "J’étudie actuellement à ESGITECH. En parallèle, je travaille comme développeur et membre de l’équipe Tukhnanutha, sur Tukai, l’outillage développeur et des plateformes web. Mes outils incluent React, Next.js, TypeScript, Python, FastAPI, NestJS, PostgreSQL et Three.js.",
     approach: "Ce qui retient mon attention",
     approachBody:
       "Le parcours dans une page, un message d’erreur utile, un formulaire sur téléphone ou la structure d’un contenu. Ces détails font partie du produit et méritent autant d’attention que les décisions techniques plus larges.",
@@ -278,12 +279,19 @@ export interface Project {
   cover: string;
   imageAlt: Localized;
   gallery?: string[];
+  imageCaptions?: Localized[];
   video?: string;
   url?: string;
   color: string;
+  role?: Localized;
+  team?: boolean;
+  period?: string;
+  sourceUrl?: string;
+  related?: { name: Localized; url: string }[];
 }
 
 export const projects: Project[] = [
+  ...currentProjects,
   {
     slug: "ghassla",
     name: "Ghassla",
@@ -429,66 +437,30 @@ export const projects: Project[] = [
     url: "https://www.travailenhauteur.tn",
     color: "rose",
   },
-  {
-    slug: "dispatching",
-    name: "Dispatching",
-    type: {
-      en: "Operations interface · work in progress",
-      fr: "Interface opérationnelle · en cours",
-    },
-    summary: {
-      en: "Exploring an interface for the moving parts of everyday operations.",
-      fr: "Explorer une interface pour les multiples tâches du quotidien opérationnel.",
-    },
-    description: {
-      en: "A dispatching application in development, exploring a responsive operations interface with FastAPI and React.",
-      fr: "Une application de dispatching en développement, autour d’une interface responsive avec FastAPI et React.",
-    },
-    context: {
-      en: "Operations interfaces need to present several kinds of information without making every screen feel equally urgent. This work-in-progress project explores a dispatching interface and the backend integration around it.",
-      fr: "Une interface opérationnelle doit présenter plusieurs types d’informations sans donner la même urgence à chaque écran. Ce projet en cours explore une interface de dispatching et son intégration backend.",
-    },
-    focus: [
-      {
-        en: "The interface explores how operational information can be organised into clear views.",
-        fr: "L’interface explore une organisation lisible des informations opérationnelles.",
-      },
-      {
-        en: "The development stack combines a React frontend with Python and FastAPI backend work.",
-        fr: "Le travail de développement associe une interface React à un backend Python et FastAPI.",
-      },
-      {
-        en: "The screenshots document the interface during development rather than a finished public service.",
-        fr: "Les captures documentent l’interface pendant son développement, plutôt qu’un service public terminé.",
-      },
-    ],
-    note: {
-      en: "Work in progress. These screenshots document the dispatching interface during development.",
-      fr: "Projet en cours. Ces captures documentent l’interface de dispatching pendant son développement.",
-    },
-    stack: ["Python", "FastAPI", "React", "WebSocket"],
-    status: "development",
-    cover: "/projects/dispatching/Screenshot 2025-09-17 194544.webp",
-    imageAlt: {
-      en: "Dispatching application interface during development",
-      fr: "Interface de l’application de dispatching en développement",
-    },
-    gallery: [
-      "/projects/dispatching/Screenshot 2025-09-17 194552.webp",
-      "/projects/dispatching/Screenshot 2025-09-17 194700.webp",
-    ],
-    color: "lilac",
-  },
 ];
 
 export const skillGroups = [
   {
     label: { en: "Interface", fr: "Interface" },
-    items: ["React", "Next.js", "TypeScript", "HTML & CSS", "Tailwind CSS"],
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Angular",
+      "Three.js",
+      "Tailwind CSS",
+    ],
   },
   {
     label: { en: "Behind the interface", fr: "Derrière l’interface" },
-    items: ["Python", "FastAPI", "Java", "Spring Boot", "PostgreSQL"],
+    items: [
+      "Python",
+      "FastAPI",
+      "NestJS",
+      "PostgreSQL",
+      "Cloudflare",
+      "Spring Boot",
+    ],
   },
   {
     label: { en: "Delivery", fr: "Mise en ligne" },

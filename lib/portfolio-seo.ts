@@ -100,8 +100,8 @@ export function homeMetadata(locale: Locale) {
       ? "Mahdi Ben Rhouma — Développeur full-stack en Tunisie"
       : "Mahdi Ben Rhouma — Full-Stack Developer in Tunisia",
     locale === "fr"
-      ? "Découvrez mes projets web, sites multilingues et interfaces en Next.js, React et TypeScript. Développeur basé en Tunisie, ouvert aux projets et opportunités."
-      : "Explore my web projects, multilingual websites and interfaces built with Next.js, React and TypeScript. Based in Tunisia and open to projects and opportunities.",
+      ? "Mahdi Ben Rhouma, développeur full-stack en Tunisie et étudiant à ESGITECH. Projets IA avec Tukhnanutha, outils 3D, plateformes développeur et sites clients."
+      : "Mahdi Ben Rhouma, full-stack developer in Tunisia and ESGITECH student. AI work with Tukhnanutha, browser 3D tools, developer platforms and client websites.",
   );
 }
 
@@ -121,6 +121,17 @@ const person = {
   url: identity.url,
   image: `${identity.url}/images/profile.jpg`,
   jobTitle: "Full-Stack Developer",
+  email: identity.email,
+  affiliation: {
+    "@type": "EducationalOrganization",
+    name: "ESGITECH",
+    url: "https://www.esgitech.tn/",
+  },
+  memberOf: {
+    "@type": "Organization",
+    name: "Tukhnanutha",
+    url: "https://www.tukhnanutha.com/",
+  },
   sameAs: [
     identity.github,
     identity.linkedin,
@@ -193,7 +204,16 @@ export function pageSchema(
       url,
       image: identity.url + project.cover,
       inLanguage: locale,
-      creator: { "@id": `${identity.url}/#person` },
+      creator: project.team
+        ? {
+            "@type": "Organization",
+            name: "Tukhnanutha",
+            url: "https://www.tukhnanutha.com/",
+          }
+        : { "@id": `${identity.url}/#person` },
+      ...(project.team
+        ? { contributor: { "@id": `${identity.url}/#person` } }
+        : {}),
     });
   return { "@context": "https://schema.org", "@graph": graph };
 }
