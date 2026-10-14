@@ -187,12 +187,32 @@ export const currentProjects: Project[] = [
       ),
     ],
     note: l(
-      "Live group website. Presented as team work and affiliation, with a real capture of the public homepage.",
-      "Site du groupe en ligne. Présenté comme travail d’équipe et affiliation, avec une vraie capture de l’accueil public.",
+      "Live group website. Presented as team work and affiliation, with public screenshots of the group overview, specialist divisions and Porteur.",
+      "Site du groupe en ligne. Présenté comme travail d’équipe et affiliation, avec des captures publiques de la présentation du groupe, de ses divisions et du Porteur.",
     ),
     stack: ["Angular", "TypeScript", "GSAP", "Cloudflare Workers", "Next.js"],
     status: "live",
     cover: "/images/work/tukhnanutha.webp",
+    gallery: [
+      "/images/work/tukhnanutha-overview.webp",
+      "/images/work/tukhnanutha-divisions.webp",
+      "/images/work/tukhnanutha-porteur.webp",
+    ],
+    imageCaptions: [
+      l(
+        "The group website’s opening introduction.",
+        "L’introduction du site du groupe.",
+      ),
+      l("The public group overview.", "La présentation publique du groupe."),
+      l(
+        "Specialist divisions and their service areas.",
+        "Les divisions spécialisées et leurs domaines de services.",
+      ),
+      l(
+        "The Porteur presentation on the group website.",
+        "La présentation du Porteur sur le site du groupe.",
+      ),
+    ],
     imageAlt: l(
       "The public Tukhnanutha technology group homepage",
       "L’accueil public du groupe technologique Tukhnanutha",
