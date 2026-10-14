@@ -18,8 +18,18 @@ export function PortfolioHeader({
   const links = [
     {
       label: t.nav.work,
-      href: `${routeFor(locale)}#work`,
+      href: routeFor(locale, "/work/"),
       active: path.startsWith("/work"),
+    },
+    {
+      label: t.nav.openSource,
+      href: routeFor(locale, "/open-source/"),
+      active: path.startsWith("/open-source/"),
+    },
+    {
+      label: t.nav.writing,
+      href: routeFor(locale, "/writing/"),
+      active: path === "/writing/",
     },
     {
       label: t.nav.services,

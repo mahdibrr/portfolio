@@ -1,0 +1,698 @@
+{
+  "github": {
+    "checkedAt": "2026-10-14T01:38:51.553Z",
+    "profile": {
+      "login": "mahdibrr",
+      "url": "https://github.com/mahdibrr",
+      "publicRepositories": 14
+    },
+    "repositories": [
+      {
+        "name": "dev-error-explainers",
+        "fullName": "mahdibrr/dev-error-explainers",
+        "url": "https://github.com/mahdibrr/dev-error-explainers",
+        "description": "Paste a developer error, get the real cause and the fix. Offline, zero-dependency explainers for CORS, ESM/CJS, npm ERESOLVE, ChunkLoadError, Postgres/Supabase DATABASE_URL and Next.js build errors.",
+        "homepage": "https://www.iloveblogs.blog/open-source",
+        "language": "JavaScript",
+        "stars": 0,
+        "forks": 1,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-10-12T17:07:27Z"
+      },
+      {
+        "name": "mahdibrr",
+        "fullName": "mahdibrr/mahdibrr",
+        "url": "https://github.com/mahdibrr/mahdibrr",
+        "description": "",
+        "homepage": "",
+        "language": null,
+        "stars": 1,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-10-08T16:41:59Z"
+      },
+      {
+        "name": "nextjs-supabase-production-incidents",
+        "fullName": "mahdibrr/nextjs-supabase-production-incidents",
+        "url": "https://github.com/mahdibrr/nextjs-supabase-production-incidents",
+        "description": "Symptom-first index of Next.js + Supabase production incidents: root cause, fix, postmortems with detection SQL, and runnable broken/fixed examples (pgTAP, Vitest).",
+        "homepage": "https://www.iloveblogs.blog/hubs/nextjs-supabase",
+        "language": null,
+        "stars": 5,
+        "forks": 4,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-10-08T16:32:35Z"
+      },
+      {
+        "name": "awesome-mcp-servers",
+        "fullName": "mahdibrr/awesome-mcp-servers",
+        "url": "https://github.com/mahdibrr/awesome-mcp-servers",
+        "description": "A collection of MCP servers.",
+        "homepage": "https://glama.ai/mcp/servers",
+        "language": null,
+        "stars": 0,
+        "forks": 0,
+        "isFork": true,
+        "isArchived": false,
+        "updatedAt": "2026-09-30T23:30:20Z"
+      },
+      {
+        "name": "nextjs-seo-content-engine",
+        "fullName": "mahdibrr/nextjs-seo-content-engine",
+        "url": "https://github.com/mahdibrr/nextjs-seo-content-engine",
+        "description": "Autonomous SEO content engine for Next.js blogs — pillar taxonomy, keyword gaps, content scoring, GSC sync, AI article generation. Production-tested.",
+        "homepage": "https://iloveblogs.blog",
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 1,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-11T20:46:39Z"
+      },
+      {
+        "name": "oaca",
+        "fullName": "mahdibrr/oaca",
+        "url": "https://github.com/mahdibrr/oaca",
+        "description": "",
+        "homepage": "",
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-08T16:18:54Z"
+      },
+      {
+        "name": "portfolio",
+        "fullName": "mahdibrr/portfolio",
+        "url": "https://github.com/mahdibrr/portfolio",
+        "description": "Personal portfolio — full-stack engineer specializing in Next.js, Supabase, and AI-augmented products. Live at mahdibr.online.",
+        "homepage": "https://mahdibr.online",
+        "language": "HTML",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-02T14:39:39Z"
+      },
+      {
+        "name": "APP-SESAME",
+        "fullName": "mahdibrr/APP-SESAME",
+        "url": "https://github.com/mahdibrr/APP-SESAME",
+        "description": "Full-stack web application built for Sesame University — student management, event tracking, and club administration portal.",
+        "homepage": "https://app-sesame.vercel.app",
+        "language": "JavaScript",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-02T00:04:55Z"
+      },
+      {
+        "name": "Mestir-plan-3d",
+        "fullName": "mahdibrr/Mestir-plan-3d",
+        "url": "https://github.com/mahdibrr/Mestir-plan-3d",
+        "description": "Browser-based 3D floor plan editor with real-time rendering. Drag-and-drop room layout, wall/door/window placement, 2D↔3D toggle. Built for real-estate and interior design.",
+        "homepage": "https://mestir-plan-3d.vercel.app",
+        "language": "JavaScript",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-02T00:04:53Z"
+      },
+      {
+        "name": "mariage",
+        "fullName": "mahdibrr/mariage",
+        "url": "https://github.com/mahdibrr/mariage",
+        "description": "Wedding website — bilingual invitation platform with RSVP management, event schedule, and guest portal.",
+        "homepage": "https://mariage-wine-sigma.vercel.app",
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": false,
+        "updatedAt": "2026-06-02T00:04:51Z"
+      },
+      {
+        "name": "films",
+        "fullName": "mahdibrr/films",
+        "url": "https://github.com/mahdibrr/films",
+        "description": "",
+        "homepage": "",
+        "language": "JavaScript",
+        "stars": 1,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": true,
+        "updatedAt": "2026-06-02T00:02:34Z"
+      },
+      {
+        "name": "jort-json",
+        "fullName": "mahdibrr/jort-json",
+        "url": "https://github.com/mahdibrr/jort-json",
+        "description": "",
+        "homepage": "",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": true,
+        "updatedAt": "2026-06-02T00:02:33Z"
+      },
+      {
+        "name": "springapp",
+        "fullName": "mahdibrr/springapp",
+        "url": "https://github.com/mahdibrr/springapp",
+        "description": "",
+        "homepage": "",
+        "language": "TypeScript",
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": true,
+        "updatedAt": "2026-06-02T00:02:31Z"
+      },
+      {
+        "name": "comit--des-clubs-sesame",
+        "fullName": "mahdibrr/comit--des-clubs-sesame",
+        "url": "https://github.com/mahdibrr/comit--des-clubs-sesame",
+        "description": "",
+        "homepage": "",
+        "language": null,
+        "stars": 0,
+        "forks": 0,
+        "isFork": false,
+        "isArchived": true,
+        "updatedAt": "2026-06-02T00:02:30Z"
+      }
+    ]
+  },
+  "publication": {
+    "checkedAt": "2026-10-14T01:38:51.553Z",
+    "sitemapUrl": "https://www.iloveblogs.blog/sitemap-index.xml",
+    "indexablePages": 344,
+    "posts": 231,
+    "guides": 49,
+    "fixes": 24,
+    "tools": 9
+  },
+  "search": {
+    "checkedAt": "2026-10-14T01:08:06.217Z",
+    "source": "Google Search Console",
+    "property": "https://www.iloveblogs.blog/",
+    "searchType": "web",
+    "dataState": "final",
+    "startDate": "2026-07-14",
+    "endDate": "2026-10-11",
+    "clicks": 1280,
+    "daily": [
+      {
+        "date": "2026-07-14",
+        "clicks": 8
+      },
+      {
+        "date": "2026-07-15",
+        "clicks": 17
+      },
+      {
+        "date": "2026-07-16",
+        "clicks": 9
+      },
+      {
+        "date": "2026-07-17",
+        "clicks": 7
+      },
+      {
+        "date": "2026-07-18",
+        "clicks": 4
+      },
+      {
+        "date": "2026-07-19",
+        "clicks": 9
+      },
+      {
+        "date": "2026-07-20",
+        "clicks": 7
+      },
+      {
+        "date": "2026-07-21",
+        "clicks": 9
+      },
+      {
+        "date": "2026-07-22",
+        "clicks": 16
+      },
+      {
+        "date": "2026-07-23",
+        "clicks": 11
+      },
+      {
+        "date": "2026-07-24",
+        "clicks": 8
+      },
+      {
+        "date": "2026-07-25",
+        "clicks": 4
+      },
+      {
+        "date": "2026-07-26",
+        "clicks": 8
+      },
+      {
+        "date": "2026-07-27",
+        "clicks": 32
+      },
+      {
+        "date": "2026-07-28",
+        "clicks": 26
+      },
+      {
+        "date": "2026-07-29",
+        "clicks": 10
+      },
+      {
+        "date": "2026-07-30",
+        "clicks": 27
+      },
+      {
+        "date": "2026-07-31",
+        "clicks": 15
+      },
+      {
+        "date": "2026-08-01",
+        "clicks": 5
+      },
+      {
+        "date": "2026-08-02",
+        "clicks": 3
+      },
+      {
+        "date": "2026-08-03",
+        "clicks": 14
+      },
+      {
+        "date": "2026-08-04",
+        "clicks": 23
+      },
+      {
+        "date": "2026-08-05",
+        "clicks": 21
+      },
+      {
+        "date": "2026-08-06",
+        "clicks": 11
+      },
+      {
+        "date": "2026-08-07",
+        "clicks": 9
+      },
+      {
+        "date": "2026-08-08",
+        "clicks": 7
+      },
+      {
+        "date": "2026-08-09",
+        "clicks": 5
+      },
+      {
+        "date": "2026-08-10",
+        "clicks": 15
+      },
+      {
+        "date": "2026-08-11",
+        "clicks": 16
+      },
+      {
+        "date": "2026-08-12",
+        "clicks": 14
+      },
+      {
+        "date": "2026-08-13",
+        "clicks": 13
+      },
+      {
+        "date": "2026-08-14",
+        "clicks": 14
+      },
+      {
+        "date": "2026-08-15",
+        "clicks": 8
+      },
+      {
+        "date": "2026-08-16",
+        "clicks": 9
+      },
+      {
+        "date": "2026-08-17",
+        "clicks": 25
+      },
+      {
+        "date": "2026-08-18",
+        "clicks": 16
+      },
+      {
+        "date": "2026-08-19",
+        "clicks": 20
+      },
+      {
+        "date": "2026-08-20",
+        "clicks": 21
+      },
+      {
+        "date": "2026-08-21",
+        "clicks": 12
+      },
+      {
+        "date": "2026-08-22",
+        "clicks": 6
+      },
+      {
+        "date": "2026-08-23",
+        "clicks": 7
+      },
+      {
+        "date": "2026-08-24",
+        "clicks": 18
+      },
+      {
+        "date": "2026-08-25",
+        "clicks": 26
+      },
+      {
+        "date": "2026-08-26",
+        "clicks": 15
+      },
+      {
+        "date": "2026-08-27",
+        "clicks": 22
+      },
+      {
+        "date": "2026-08-28",
+        "clicks": 5
+      },
+      {
+        "date": "2026-08-29",
+        "clicks": 8
+      },
+      {
+        "date": "2026-08-30",
+        "clicks": 3
+      },
+      {
+        "date": "2026-08-31",
+        "clicks": 17
+      },
+      {
+        "date": "2026-09-01",
+        "clicks": 9
+      },
+      {
+        "date": "2026-09-02",
+        "clicks": 15
+      },
+      {
+        "date": "2026-09-03",
+        "clicks": 17
+      },
+      {
+        "date": "2026-09-04",
+        "clicks": 18
+      },
+      {
+        "date": "2026-09-05",
+        "clicks": 8
+      },
+      {
+        "date": "2026-09-06",
+        "clicks": 13
+      },
+      {
+        "date": "2026-09-07",
+        "clicks": 9
+      },
+      {
+        "date": "2026-09-08",
+        "clicks": 12
+      },
+      {
+        "date": "2026-09-09",
+        "clicks": 20
+      },
+      {
+        "date": "2026-09-10",
+        "clicks": 15
+      },
+      {
+        "date": "2026-09-11",
+        "clicks": 11
+      },
+      {
+        "date": "2026-09-12",
+        "clicks": 5
+      },
+      {
+        "date": "2026-09-13",
+        "clicks": 11
+      },
+      {
+        "date": "2026-09-14",
+        "clicks": 16
+      },
+      {
+        "date": "2026-09-15",
+        "clicks": 22
+      },
+      {
+        "date": "2026-09-16",
+        "clicks": 23
+      },
+      {
+        "date": "2026-09-17",
+        "clicks": 14
+      },
+      {
+        "date": "2026-09-18",
+        "clicks": 15
+      },
+      {
+        "date": "2026-09-19",
+        "clicks": 9
+      },
+      {
+        "date": "2026-09-20",
+        "clicks": 16
+      },
+      {
+        "date": "2026-09-21",
+        "clicks": 24
+      },
+      {
+        "date": "2026-09-22",
+        "clicks": 14
+      },
+      {
+        "date": "2026-09-23",
+        "clicks": 19
+      },
+      {
+        "date": "2026-09-24",
+        "clicks": 12
+      },
+      {
+        "date": "2026-09-25",
+        "clicks": 17
+      },
+      {
+        "date": "2026-09-26",
+        "clicks": 8
+      },
+      {
+        "date": "2026-09-27",
+        "clicks": 9
+      },
+      {
+        "date": "2026-09-28",
+        "clicks": 22
+      },
+      {
+        "date": "2026-09-29",
+        "clicks": 28
+      },
+      {
+        "date": "2026-09-30",
+        "clicks": 17
+      },
+      {
+        "date": "2026-10-01",
+        "clicks": 15
+      },
+      {
+        "date": "2026-10-02",
+        "clicks": 13
+      },
+      {
+        "date": "2026-10-03",
+        "clicks": 7
+      },
+      {
+        "date": "2026-10-04",
+        "clicks": 5
+      },
+      {
+        "date": "2026-10-05",
+        "clicks": 22
+      },
+      {
+        "date": "2026-10-06",
+        "clicks": 19
+      },
+      {
+        "date": "2026-10-07",
+        "clicks": 34
+      },
+      {
+        "date": "2026-10-08",
+        "clicks": 26
+      },
+      {
+        "date": "2026-10-09",
+        "clicks": 22
+      },
+      {
+        "date": "2026-10-10",
+        "clicks": 15
+      },
+      {
+        "date": "2026-10-11",
+        "clicks": 19
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "Supabase RLS Playground",
+      "url": "https://www.iloveblogs.blog/tools/supabase-rls-playground",
+      "description": "Run your policies against real Postgres, as four identities at once",
+      "topic": "Supabase",
+      "libraryModule": null
+    },
+    {
+      "name": "Next.js Build Error Decoder",
+      "url": "https://www.iloveblogs.blog/tools/nextjs-build-error-decoder",
+      "description": "Paste a failing build, get the exact fix",
+      "topic": "Next.js",
+      "libraryModule": "build-error-decoder"
+    },
+    {
+      "name": "Next.js Env Leak Checker",
+      "url": "https://www.iloveblogs.blog/tools/nextjs-env-checker",
+      "description": "Catch secrets leaking into the client bundle",
+      "topic": "Next.js",
+      "libraryModule": null
+    },
+    {
+      "name": "Supabase RLS Policy Debugger",
+      "url": "https://www.iloveblogs.blog/tools/supabase-rls-debugger",
+      "description": "Decode RLS errors, get corrected SQL",
+      "topic": "Supabase",
+      "libraryModule": null
+    },
+    {
+      "name": "ChunkLoadError Cache Checker",
+      "url": "https://www.iloveblogs.blog/tools/chunkloaderror-cache-checker",
+      "description": "Paste your headers, see why chunks fail after a deploy",
+      "topic": "Next.js",
+      "libraryModule": "chunk-cache-explainer"
+    },
+    {
+      "name": "Supabase DATABASE_URL Doctor",
+      "url": "https://www.iloveblogs.blog/tools/supabase-database-url-doctor",
+      "description": "Pooler vs direct, 5432 vs 6543, the password encoding",
+      "topic": "Supabase",
+      "libraryModule": "database-url-doctor"
+    },
+    {
+      "name": "CORS Error Explainer",
+      "url": "https://www.iloveblogs.blog/tools/cors-error-explainer",
+      "description": "Paste the console error, get the missing header",
+      "topic": "Next.js",
+      "libraryModule": "cors-error-explainer"
+    },
+    {
+      "name": "Node.js ESM/CommonJS Error Explainer",
+      "url": "https://www.iloveblogs.blog/tools/esm-cjs-error-explainer",
+      "description": "ERR_REQUIRE_ESM, import outside a module, .ts extension",
+      "topic": "TypeScript",
+      "libraryModule": "esm-cjs-explainer"
+    },
+    {
+      "name": "npm ERESOLVE Explainer",
+      "url": "https://www.iloveblogs.blog/tools/npm-eresolve-explainer",
+      "description": "Paste the npm log, see which peer range fails and why",
+      "topic": "TypeScript",
+      "libraryModule": "npm-eresolve-explainer"
+    }
+  ],
+  "writing": [
+    {
+      "title": "Fix ChunkLoadError: Loading Chunk Failed in Next.js",
+      "description": "ChunkLoadError right after a deploy is version skew, not broken code: stale HTML requesting renamed hashed chunks. The Next.js config that stops it.",
+      "topic": "Next.js",
+      "url": "https://www.iloveblogs.blog/post/nextjs-chunkloaderror-loading-chunk-failed-fix",
+      "kind": "Article"
+    },
+    {
+      "title": "useSearchParams Suspense Error: 3 Real Fixes (Next.js 15)",
+      "description": "useSearchParams forces client-side rendering during static builds. Wrap it in Suspense or switch to the searchParams page prop — both fixes shown in full.",
+      "topic": "Next.js",
+      "url": "https://www.iloveblogs.blog/post/fix-nextjs-missing-suspense-boundary-use-searchparams",
+      "kind": "Article"
+    },
+    {
+      "title": "Test Supabase RLS Policies Before You Ship",
+      "description": "The SQL editor and the service key both bypass RLS, so neither proves your policy works. Here is how to test a policy as anon and as two real users.",
+      "topic": "Supabase",
+      "url": "https://www.iloveblogs.blog/post/test-supabase-rls-policies-before-you-ship",
+      "kind": "Article"
+    },
+    {
+      "title": "Supabase RLS Policy Not Working: 2026 Debug Checklist",
+      "description": "Supabase RLS policy not working? Find auth.uid nulls, uuid/text mismatches, USING vs WITH CHECK bugs, role leaks, service key traps, and safe fixes today.",
+      "topic": "Supabase",
+      "url": "https://www.iloveblogs.blog/guides/supabase-rls-policy-not-working-debug-checklist",
+      "kind": "Guide"
+    },
+    {
+      "title": "Next.js Webhook Handling and Event-Driven Architecture",
+      "description": "Webhook handling and event-driven architecture with Next.js and Supabase: security, retry mechanisms, and distributed system patterns.",
+      "topic": "Webhooks",
+      "url": "https://www.iloveblogs.blog/guides/nextjs-supabase-webhook-event-architecture",
+      "kind": "Guide"
+    },
+    {
+      "title": "Stripe Webhook Signature Verification Failed in Next.js",
+      "description": "\"No signatures found matching expected signature\" in Next.js? Raw-body fix for App Router, Pages Router, Vercel Edge — plus retry strategy.",
+      "topic": "Webhooks",
+      "url": "https://www.iloveblogs.blog/post/stripe-webhook-signature-verification-failed-nextjs",
+      "kind": "Article"
+    },
+    {
+      "title": "Fix: exports is not defined in ES module scope",
+      "description": "Node can load .js as ESM through package type or syntax detection. Keep CommonJS in .cjs, or replace exports with ES module syntax.",
+      "topic": "Node.js",
+      "url": "https://www.iloveblogs.blog/post/exports-is-not-defined-in-es-module-scope",
+      "kind": "Article"
+    },
+    {
+      "title": "Fix \"Parsing error: Cannot find module next/babel\"",
+      "description": "Resolve ESLint's 'Cannot find module next/babel' error by updating .eslintrc.json and aligning with Next.js 13+ SWC/Babel config. Includes monorepo fixes.",
+      "topic": "Next.js",
+      "url": "https://www.iloveblogs.blog/fix/parsing-error-cannot-find-module-nextbabel",
+      "kind": "Fix"
+    }
+  ]
+}

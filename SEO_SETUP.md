@@ -2,7 +2,8 @@
 
 The public site uses `lib/portfolio-seo.ts` for metadata and structured data.
 English and French have separate static routes, including the homepage, About,
-Services and four project pages. Each page has a unique title and description,
+Services, four project pages, public-code case studies and connected resource
+directories. Each page has a unique title and description,
 a self-referencing HTTPS canonical, reciprocal English/French hreflang links
 and an English x-default.
 
@@ -12,7 +13,7 @@ runs. Root navigation and case studies use ordinary crawlable links.
 
 ## Published files
 
-- `/sitemap.xml`: all 14 pages, with language alternatives.
+- `/sitemap.xml`: all 34 pages, with language alternatives.
 - `/robots.txt`: search crawl rules and the canonical sitemap URL.
 - `/social/en/*.png` and `/social/fr/*.png`: actual 1200 × 630 sharing images.
 - `/manifest.webmanifest`: real icons and the current site colours.
@@ -23,6 +24,16 @@ Project pages use CreativeWork and breadcrumbs. Schema contains verified
 profile links and project facts; it does not invent credentials, ratings or
 business results. Legacy `lib/seo` helpers remain for historical components;
 they do not generate the redesigned public pages.
+
+Public-code pages describe SoftwareSourceCode and point to the actual
+repositories. The Person links the portfolio, public GitHub profile, personal
+LinkedIn profile and iloveblogs author page. Directories use ItemList where the
+visible items match the structured data. Ordinary links connect projects,
+source files, reading and browser tools; all pages are reachable within three
+clicks of their language homepage.
+
+The publication statistics are dated and sourced. Search Console clicks are
+not visitor counts, and editorial URLs in a sitemap are not an indexing count.
 
 ## Validation and publication
 

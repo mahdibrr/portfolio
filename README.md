@@ -29,10 +29,28 @@ An active zone redirect rule, `94e376f048bc4b03b9d514cab58125b1`, sends WWW to t
 canonical HTTPS apex with status 301 and preserves paths and query strings.
 
 This project uses Direct Upload. GitHub pushes do not automatically deploy it.
-The redesigned site has 14 English and French pages, real project case studies,
+The site has 34 English and French pages, real project case studies,
 and a paper/forest visual palette. `npm run build:cf` prepares image assets,
 checks TypeScript and validates the exported SEO, links and media. See
 `SEO_SETUP.md` for the public metadata and indexing workflow.
+The connected sections include `/open-source/`, `/writing/`, `/tools/`,
+`/resources/`, `/ecosystem/` and `/stats/iloveblogs/`. The repository directory
+shows public GitHub projects, with forks and archives identified. Featured
+projects link to their source, documentation and related iloveblogs tools.
+
+`data/ecosystem-snapshot.json` contains the dated public GitHub catalog, live
+sitemap counts and final Google Search Console click totals. The sanitized
+snapshot is also served at `/data/ecosystem-snapshot.json`; it contains no
+credentials, query terms or visitor records. Builds use the checked-in data.
+To refresh it manually with the existing iloveblogs credentials, run:
+
+```powershell
+npm run refresh:ecosystem -- --blog-root ../iloveblogs
+```
+
+Use `--skip-gsc` to retain the previous dated search snapshot while refreshing
+public repositories, reading selections and sitemap counts. Refreshing data
+does not deploy the site. There is no automatic deployment setup.
 The build creates `out/`; `public/_headers` preserves the CSP and asset cache headers.
 Metadata routes are explicitly static, and Next image optimization is disabled
 because the export has no Next.js server. The Ghassla demo video was compressed

@@ -5,15 +5,7 @@ import sharp from "sharp";
 
 const root = path.resolve("out");
 const origin = "https://mahdibr.online";
-const routes = [
-  "/",
-  "/about/",
-  "/services/",
-  "/work/ghassla/",
-  "/work/iloveblogs/",
-  "/work/travail-en-hauteur/",
-  "/work/dispatching/",
-];
+const routes = JSON.parse(await readFile("data/site-routes.json", "utf8"));
 const allRoutes = routes.flatMap((route) => [
   route,
   "/fr" + (route === "/" ? "/" : route),
@@ -39,6 +31,7 @@ const elements = (html, name) =>
   );
 const htmlFor = (route) => path.join(root, route, "index.html");
 const docs = new Map();
+const navigation = new Map();
 const titles = new Set(),
   descriptions = new Set();
 for (const route of allRoutes) {
@@ -119,7 +112,7 @@ for (const route of allRoutes) {
     for (const ref of refs)
       assert(ids.has(ref[1]), route + ": dangling schema reference " + ref[1]);
   }
-  if (route.includes("/work/"))
+  if (/\/work\/[^/]+\/$/.test(route))
     assert(
       graph.some((node) => node["@type"] === "CreativeWork"),
       route + ": project schema",
@@ -138,11 +131,13 @@ for (const route of allRoutes) {
 let checkedLinks = 0,
   checkedAssets = 0;
 for (const [route, html] of docs) {
+  const reachable = new Set();
   for (const anchor of elements(html, "a")) {
     if (!anchor.href || /^(mailto:|tel:)/.test(anchor.href)) continue;
     const url = new URL(anchor.href, origin + route);
     if (url.origin !== origin) continue;
     const target = url.pathname;
+    if (docs.has(target)) reachable.add(target);
     assert(
       docs.has(target) ||
         (await stat(path.join(root, decodeURIComponent(target)))
@@ -161,6 +156,7 @@ for (const [route, html] of docs) {
     }
     checkedLinks++;
   }
+  navigation.set(route, reachable);
   for (const tag of [...elements(html, "img"), ...elements(html, "source")]) {
     if (!tag.src?.startsWith("/")) continue;
     assert(
@@ -172,6 +168,49 @@ for (const [route, html] of docs) {
     checkedAssets++;
   }
 }
+for (const languageRoot of ["/", "/fr/"]) {
+  const distances = new Map([[languageRoot, 0]]);
+  const queue = [languageRoot];
+  while (queue.length) {
+    const route = queue.shift();
+    for (const target of navigation.get(route) || []) {
+      if (!distances.has(target)) {
+        distances.set(target, distances.get(route) + 1);
+        queue.push(target);
+      }
+    }
+  }
+  for (const route of allRoutes.filter((route) =>
+    languageRoot === "/fr/"
+      ? route.startsWith("/fr/")
+      : !route.startsWith("/fr/"),
+  )) {
+    assert(
+      distances.has(route) && distances.get(route) <= 3,
+      "Page is more than three clicks from its language homepage: " + route,
+    );
+  }
+}
+const snapshot = JSON.parse(
+  await readFile(path.join(root, "data/ecosystem-snapshot.json"), "utf8"),
+);
+assert.equal(snapshot.search.property, "https://www.iloveblogs.blog/");
+assert.equal(snapshot.search.dataState, "final");
+assert.equal(
+  snapshot.search.daily.reduce((total, day) => total + day.clicks, 0),
+  snapshot.search.clicks,
+  "Search total matches the reported daily values",
+);
+assert.equal(
+  snapshot.github.repositories.length,
+  snapshot.github.profile.publicRepositories,
+);
+assert(
+  !/access_token|refresh_token|private_key|client_secret|CLOUDFLARE_API_TOKEN/i.test(
+    JSON.stringify(snapshot),
+  ),
+  "Public snapshot contains no credential fields",
+);
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
   .map((match) => decode(match[1]))
@@ -179,7 +218,7 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
 assert.deepEqual(
   sitemapUrls,
   allRoutes.map((route) => origin + route).sort(),
-  "Sitemap contains exactly the 14 published pages",
+  "Sitemap contains exactly the published pages",
 );
 const robots = await readFile(path.join(root, "robots.txt"), "utf8");
 assert(
@@ -214,7 +253,9 @@ async function checkSizes(dir) {
 }
 await checkSizes(root);
 console.log(
-  "Validated 14 pages: titles, descriptions, language, canonical/hreflang, JSON-LD, social images, sitemap, 404 and manifest.",
+  "Validated " +
+    allRoutes.length +
+    " pages: titles, descriptions, language, canonical/hreflang, JSON-LD, social images, sitemap, 404, navigation depth, public stats and manifest.",
 );
 console.log(
   "Verified " +

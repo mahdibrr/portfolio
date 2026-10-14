@@ -7,9 +7,12 @@
     "components/Portfolio*.tsx",
     "components/ProjectGallery.tsx",
     "components/ContactForm.tsx",
+    "components/Ecosystem*.tsx",
+    "components/RepositoryDirectory.tsx",
     "lib/fonts.ts",
     "lib/portfolio.ts",
     "lib/portfolio-seo.ts",
+    "lib/ecosystem.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", ".next/dev"]

@@ -1,3 +1,4 @@
+import siteRoutes from "@/data/site-routes.json";
 export type Locale = "en" | "fr";
 export type Localized = { en: string; fr: string };
 
@@ -18,6 +19,8 @@ export const copy = {
   en: {
     nav: {
       work: "Selected work",
+      openSource: "Open source",
+      writing: "Writing",
       services: "Services",
       about: "About",
       contact: "Let’s talk",
@@ -139,6 +142,8 @@ export const copy = {
   fr: {
     nav: {
       work: "Projets",
+      openSource: "Open source",
+      writing: "Articles",
       services: "Services",
       about: "À propos",
       contact: "Parlons-en",
@@ -494,9 +499,4 @@ export const skillGroups = [
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
-export const pageRoutes = [
-  "/",
-  "/about/",
-  "/services/",
-  ...projects.map((project) => `/work/${project.slug}/`),
-];
+export const pageRoutes = siteRoutes;

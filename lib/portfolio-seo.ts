@@ -121,7 +121,11 @@ const person = {
   url: identity.url,
   image: `${identity.url}/images/profile.jpg`,
   jobTitle: "Full-Stack Developer",
-  sameAs: [identity.github, identity.linkedin],
+  sameAs: [
+    identity.github,
+    identity.linkedin,
+    "https://www.iloveblogs.blog/author/mahdi-br",
+  ],
   knowsAbout: [
     "React",
     "Next.js",

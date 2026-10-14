@@ -11,6 +11,16 @@ describe("Published portfolio sitemap", () => {
       "/work/iloveblogs/",
       "/work/travail-en-hauteur/",
       "/work/dispatching/",
+      "/work/",
+      "/open-source/",
+      "/open-source/dev-error-explainers/",
+      "/open-source/nextjs-supabase-production-incidents/",
+      "/open-source/nextjs-seo-content-engine/",
+      "/writing/",
+      "/tools/",
+      "/resources/",
+      "/ecosystem/",
+      "/stats/iloveblogs/",
     ];
     const expected = paths.flatMap((path) => [
       "https://mahdibr.online" + path,

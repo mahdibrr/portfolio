@@ -17,6 +17,7 @@ import {
   type Project,
 } from "@/lib/portfolio";
 import { pageSchema } from "@/lib/portfolio-seo";
+import { EcosystemBridge } from "./EcosystemBridge";
 
 export function BrowserPreview({
   project,
@@ -304,6 +305,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           </div>
         </div>
       </section>
+      <EcosystemBridge locale={locale} />
       <section className="about-home shell" id="about">
         <div className="about-margin">
           <span className="mono">{t.aboutLabel}</span>

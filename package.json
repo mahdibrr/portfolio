@@ -6,6 +6,7 @@
     "build": "npm run build:cf",
     "build:cf": "node scripts/prepare-assets.mjs && next build --webpack && node scripts/validate-export.mjs",
     "check:export": "node scripts/validate-export.mjs",
+    "refresh:ecosystem": "node scripts/refresh-ecosystem.mjs",
     "dev": "next dev",
     "dev:clean": "next dev --no-turbopack",
     "lint": "eslint .",

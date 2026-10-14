@@ -5,6 +5,7 @@ import { ContactForm } from "./ContactForm";
 import { copy, identity, routeFor, type Locale } from "@/lib/portfolio";
 import { sans, serif } from "@/lib/fonts";
 import "@/app/globals.css";
+import { ecosystemCopy } from "@/lib/ecosystem";
 
 export function PortfolioRoot({
   locale,
@@ -96,6 +97,28 @@ export function PortfolioFrame({
       <main id="main-content">{children}</main>
       <ContactSection locale={locale} />
       <footer className="site-footer">
+        <nav
+          className="shell site-explore"
+          aria-label={
+            locale === "fr" ? "Explorer le site" : "Explore the website"
+          }
+        >
+          {[
+            ["/work/", ecosystemCopy[locale].work],
+            ["/open-source/", ecosystemCopy[locale].openSource],
+            ["/writing/", ecosystemCopy[locale].writing],
+            ["/tools/", ecosystemCopy[locale].tools],
+            ["/resources/", ecosystemCopy[locale].resources],
+            ["/ecosystem/", ecosystemCopy[locale].map],
+            ["/stats/iloveblogs/", ecosystemCopy[locale].stats],
+            ["/about/", copy[locale].nav.about],
+          ].map(([route, label]) => (
+            <a key={route} href={routeFor(locale, route)}>
+              {label}
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+          ))}
+        </nav>
         <div className="shell footer-inner">
           <a className="footer-name" href={routeFor(locale)}>
             {identity.name}
