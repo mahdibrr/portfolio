@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/Portfolio*.tsx",
+    "components/ProjectGallery.tsx",
+    "components/ContactForm.tsx",
+    "lib/fonts.ts",
+    "lib/portfolio.ts",
+    "lib/portfolio-seo.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next/dev"]
+}

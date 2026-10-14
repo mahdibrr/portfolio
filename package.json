@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "npm run build:cf",
+    "build:cf": "node scripts/prepare-assets.mjs && next build --webpack && node scripts/validate-export.mjs",
+    "check:export": "node scripts/validate-export.mjs",
     "dev": "next dev",
     "dev:clean": "next dev --no-turbopack",
     "lint": "eslint .",

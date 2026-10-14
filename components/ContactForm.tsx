@@ -1,185 +1,162 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
-import { toast } from "sonner"
-import { Send, Loader2 } from "lucide-react"
+import { useState, type FormEvent } from "react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
+import { identity, type Locale } from "@/lib/portfolio";
 
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit"
-
-const copy = {
+const labels = {
   en: {
-    name: "Name",
-    namePlaceholder: "Your name",
-    email: "Email",
-    emailPlaceholder: "you@example.com",
-    message: "Message",
-    messagePlaceholder: "Tell me about your project or opportunity…",
-    submit: "Send message",
+    title: "A good place to start.",
+    name: "Your name",
+    email: "Email address",
+    message: "A little about your project",
+    nameHint: "What should I call you?",
+    emailHint: "you@company.com",
+    messageHint: "What are you building, and where could I help?",
+    submit: "Send enquiry",
+    draft: "Open email draft",
     sending: "Sending…",
-    success: "Message sent — I'll get back to you soon.",
-    error: "Something went wrong. Please email me directly.",
-    nameError: "Please enter your name.",
-    emailError: "Please enter a valid email.",
-    messageError: "Message should be at least 10 characters.",
-    missingKey: "Contact form is not configured yet. Please email me directly.",
+    sent: "Thank you. Your message has been sent.",
+    opened: "Continue in your email app to send your enquiry.",
+    error: "The message could not be sent. Please use the direct email link.",
+    note: "This opens your email app with your message ready to send.",
   },
   fr: {
-    name: "Nom",
-    namePlaceholder: "Votre nom",
-    email: "Email",
-    emailPlaceholder: "vous@exemple.com",
-    message: "Message",
-    messagePlaceholder: "Parlez-moi de votre projet ou opportunité…",
-    submit: "Envoyer le message",
+    title: "Un bon point de départ.",
+    name: "Votre nom",
+    email: "Adresse email",
+    message: "Quelques mots sur votre projet",
+    nameHint: "Comment vous appelez-vous ?",
+    emailHint: "vous@entreprise.fr",
+    messageHint:
+      "Que souhaitez-vous construire et comment puis-je vous aider ?",
+    submit: "Envoyer la demande",
+    draft: "Ouvrir un brouillon email",
     sending: "Envoi…",
-    success: "Message envoyé — je vous réponds très vite.",
-    error: "Une erreur est survenue. Écrivez-moi directement par email.",
-    nameError: "Veuillez saisir votre nom.",
-    emailError: "Veuillez saisir un email valide.",
-    messageError: "Le message doit faire au moins 10 caractères.",
-    missingKey: "Le formulaire n'est pas encore configuré. Écrivez-moi par email.",
+    sent: "Merci. Votre message a bien été envoyé.",
+    opened:
+      "Continuez dans votre application email pour envoyer votre demande.",
+    error: "Le message n’a pas pu être envoyé. Utilisez le lien email direct.",
+    note: "Votre application email s’ouvre avec votre message prêt à envoyer.",
   },
-} as const
+};
 
-export function ContactForm({ language = "en" }: { language?: "en" | "fr" }) {
-  const t = copy[language]
-  const [isSubmitting, setIsSubmitting] = useState(false)
+export function ContactForm({ language = "en" }: { language?: Locale }) {
+  const t = labels[language];
+  const [busy, setBusy] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
-  const schema = z.object({
-    name: z.string().min(2, { message: t.nameError }),
-    email: z.string().email({ message: t.emailError }),
-    message: z.string().min(10, { message: t.messageError }),
-    // Honeypot — must stay empty (hidden from real users)
-    botcheck: z.string().optional(),
-  })
-
-  type FormValues = z.infer<typeof schema>
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) })
-
-  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY
-
-  const onSubmit = async (data: FormValues) => {
-    if (data.botcheck) return // bot caught
-    if (!accessKey) {
-      toast.error(t.missingKey)
-      return
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    if (data.get("website")) return;
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const subject =
+      language === "fr"
+        ? `Demande de projet — ${name}`
+        : `Project enquiry — ${name}`;
+    if (!key) {
+      window.location.assign(
+        `mailto:${identity.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`${name}\n${email}\n\n${message}`)}`,
+      );
+      setFeedback(t.opened);
+      return;
     }
-
-    setIsSubmitting(true)
+    setBusy(true);
+    setFeedback("");
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
-          access_key: accessKey,
-          name: data.name,
-          email: data.email,
-          message: data.message,
-          subject: `Portfolio contact from ${data.name}`,
-          from_name: "mahdibr.online",
+          access_key: key,
+          name,
+          email,
+          message,
+          subject,
+          from_name: identity.name,
         }),
-      })
-      const json = await res.json()
-      if (json.success) {
-        toast.success(t.success)
-        reset()
-      } else {
-        toast.error(t.error)
-      }
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error("Submission failed");
+      setFeedback(t.sent);
+      form.reset();
     } catch {
-      toast.error(t.error)
+      setFeedback(t.error);
     } finally {
-      setIsSubmitting(false)
+      setBusy(false);
     }
   }
 
-  const fieldClass =
-    "w-full rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3 text-[#EDEDF2] placeholder:text-white/45 transition-colors focus:border-indigo-500/60 focus:bg-white/[0.05] outline-none"
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 text-left" noValidate>
-      {/* Honeypot (hidden) */}
-      <input
-        type="checkbox"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="hidden"
-        {...register("botcheck")}
-      />
-
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="name" className="block text-xs font-medium uppercase tracking-wider text-white/50 mb-2">
-            {t.name}
-          </label>
-          <input
-            id="name"
-            type="text"
-            placeholder={t.namePlaceholder}
-            aria-invalid={!!errors.name}
-            className={fieldClass}
-            {...register("name")}
-          />
-          {errors.name && <p className="mt-1.5 text-sm text-rose-400">{errors.name.message}</p>}
-        </div>
-
-        <div>
-          <label htmlFor="email" className="block text-xs font-medium uppercase tracking-wider text-white/50 mb-2">
-            {t.email}
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder={t.emailPlaceholder}
-            aria-invalid={!!errors.email}
-            className={fieldClass}
-            {...register("email")}
-          />
-          {errors.email && <p className="mt-1.5 text-sm text-rose-400">{errors.email.message}</p>}
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="message" className="block text-xs font-medium uppercase tracking-wider text-white/50 mb-2">
-          {t.message}
+    <form className="enquiry-form" onSubmit={submit}>
+      <h3>{t.title}</h3>
+      <div className="honeypot" aria-hidden="true">
+        <label>
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-        <textarea
-          id="message"
-          rows={5}
-          placeholder={t.messagePlaceholder}
-          aria-invalid={!!errors.message}
-          className={`${fieldClass} resize-none`}
-          {...register("message")}
-        />
-        {errors.message && <p className="mt-1.5 text-sm text-rose-400">{errors.message.message}</p>}
       </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-indigo-500 px-7 py-3.5 font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:bg-indigo-400 disabled:cursor-not-allowed disabled:opacity-60"
-      >
-        {isSubmitting ? (
+      <div className="form-row">
+        <label>
+          {t.name}
+          <input
+            name="name"
+            type="text"
+            autoComplete="name"
+            placeholder={t.nameHint}
+            required
+            minLength={2}
+            maxLength={120}
+          />
+        </label>
+        <label>
+          {t.email}
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder={t.emailHint}
+            required
+            maxLength={254}
+          />
+        </label>
+      </div>
+      <label>
+        {t.message}
+        <textarea
+          name="message"
+          rows={4}
+          placeholder={t.messageHint}
+          required
+          minLength={10}
+          maxLength={5000}
+        />
+      </label>
+      <button className="button button-forest" type="submit" disabled={busy}>
+        {busy ? (
           <>
-            <Loader2 size={18} className="animate-spin" /> {t.sending}
+            <Loader2 className="spinner" size={18} aria-hidden="true" />
+            {t.sending}
           </>
         ) : (
           <>
-            {t.submit}
-            <Send size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            {key ? t.submit : t.draft}
+            <ArrowUpRight size={19} aria-hidden="true" />
           </>
         )}
       </button>
+      {!key && <p className="form-note">{t.note}</p>}
+      <p className="form-feedback" role="status" aria-live="polite">
+        {feedback}
+      </p>
     </form>
-  )
+  );
 }
