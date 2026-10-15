@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ArrowUpRight, GitFork, Archive, Code2 } from "lucide-react";
+import { ArrowUpRight, GitFork, Code2 } from "lucide-react";
 import { ecosystemCopy, ecosystem, displayDate } from "@/lib/ecosystem";
 import type { Locale } from "@/lib/portfolio";
 
@@ -45,9 +45,8 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
     return (
       matches &&
       (filter === "all" ||
-        (filter === "archived" && repo.isArchived) ||
         (filter === "fork" && repo.isFork) ||
-        (filter === "original" && !repo.isFork && !repo.isArchived))
+        (filter === "original" && !repo.isFork))
     );
   });
 
@@ -79,7 +78,6 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
             ["all", t.all],
             ["original", t.original],
             ["fork", t.fork],
-            ["archived", t.archived],
           ].map(([key, label]) => (
             <button
               key={key}
@@ -110,11 +108,6 @@ export function RepositoryDirectory({ locale }: { locale: Locale }) {
                   <>
                     <GitFork size={12} aria-hidden="true" />
                     {t.fork}
-                  </>
-                ) : repo.isArchived ? (
-                  <>
-                    <Archive size={12} aria-hidden="true" />
-                    {t.archived}
                   </>
                 ) : repo.name === "nextjs-seo-content-engine" ? (
                   t.historical

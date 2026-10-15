@@ -88,7 +88,7 @@ export const ecosystemCopy = {
     method2:
       "Page counts come from the publication’s public sitemap files. The editorial total includes posts, guides and fixes. Tools are counted separately.",
     method3:
-      "GitHub counts come from the public API and include original repositories, forks and archived repositories. This page is a snapshot, not a live counter.",
+      "GitHub counts come from the public API and list active original repositories and forks; archived repositories are left out. This page is a snapshot, not a live counter.",
     dataLink: "Download the public snapshot",
     sitemapLink: "Open the source sitemap",
     githubLink: "Open the GitHub profile",
@@ -180,7 +180,7 @@ export const ecosystemCopy = {
     method2:
       "Le décompte des pages utilise les sitemaps publics. Le total éditorial réunit articles, guides et correctifs ; les outils sont comptés séparément.",
     method3:
-      "Les données GitHub viennent de l’API publique et incluent les dépôts originaux, les forks et les archives. Cette page est un instantané daté.",
+      "Les données GitHub viennent de l’API publique et listent les dépôts originaux et les forks actifs ; les archives sont exclues. Cette page est un instantané daté.",
     dataLink: "Télécharger l’instantané public",
     sitemapLink: "Ouvrir le sitemap source",
     githubLink: "Ouvrir le profil GitHub",

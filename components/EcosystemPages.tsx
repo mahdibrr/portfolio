@@ -402,13 +402,13 @@ function Stats({ locale }: { locale: Locale }) {
           : "Tools available on the publication.",
     },
     {
-      value: ecosystem.github.profile.publicRepositories,
+      value: ecosystem.github.repositories.length,
       label: t.repos,
       note: t.checked + " / " + displayDate(ecosystem.github.checkedAt, locale),
       body:
         locale === "fr"
-          ? "Inclut dépôts originaux, forks et archives."
-          : "Includes original repositories, forks and archives.",
+          ? "Dépôts originaux et forks actifs, sans les archives."
+          : "Active original repositories and forks, archives excluded.",
     },
   ];
   const weeks = [];

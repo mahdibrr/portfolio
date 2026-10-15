@@ -23,7 +23,7 @@ const [profile, repos] = await Promise.all([
   github("/users/mahdibrr/repos?type=owner&per_page=100&sort=updated"),
 ]);
 const repositories = repos
-  .filter((repo) => !repo.private)
+  .filter((repo) => !repo.private && !repo.archived)
   .map((repo) => ({
     name: repo.name,
     fullName: repo.full_name,

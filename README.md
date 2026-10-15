@@ -35,7 +35,7 @@ checks TypeScript and validates the exported SEO, links and media. See
 `SEO_SETUP.md` for the public metadata and indexing workflow.
 The sections include `/open-source/`, `/writing/`, `/tools/`,
 `/resources/` and `/stats/iloveblogs/`. The repository directory
-shows public GitHub projects, with forks and archives identified. Featured
+shows active public GitHub projects with forks identified; archived repositories are left out. Featured
 projects link to their source, documentation and related iloveblogs tools.
 Relationships live in ordinary relevant links and verified structured data.
 There is no visual ecosystem page; its former English and French URLs redirect

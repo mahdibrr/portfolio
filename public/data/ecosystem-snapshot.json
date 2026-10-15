@@ -4,7 +4,7 @@
     "profile": {
       "login": "mahdibrr",
       "url": "https://github.com/mahdibrr",
-      "publicRepositories": 14
+      "publicRepositories": 13
     },
     "repositories": [
       {
@@ -136,58 +136,6 @@
         "isFork": false,
         "isArchived": false,
         "updatedAt": "2026-06-02T00:04:51Z"
-      },
-      {
-        "name": "films",
-        "fullName": "mahdibrr/films",
-        "url": "https://github.com/mahdibrr/films",
-        "description": "",
-        "homepage": "",
-        "language": "JavaScript",
-        "stars": 1,
-        "forks": 0,
-        "isFork": false,
-        "isArchived": true,
-        "updatedAt": "2026-06-02T00:02:34Z"
-      },
-      {
-        "name": "jort-json",
-        "fullName": "mahdibrr/jort-json",
-        "url": "https://github.com/mahdibrr/jort-json",
-        "description": "",
-        "homepage": "",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0,
-        "isFork": false,
-        "isArchived": true,
-        "updatedAt": "2026-06-02T00:02:33Z"
-      },
-      {
-        "name": "springapp",
-        "fullName": "mahdibrr/springapp",
-        "url": "https://github.com/mahdibrr/springapp",
-        "description": "",
-        "homepage": "",
-        "language": "TypeScript",
-        "stars": 0,
-        "forks": 0,
-        "isFork": false,
-        "isArchived": true,
-        "updatedAt": "2026-06-02T00:02:31Z"
-      },
-      {
-        "name": "comit--des-clubs-sesame",
-        "fullName": "mahdibrr/comit--des-clubs-sesame",
-        "url": "https://github.com/mahdibrr/comit--des-clubs-sesame",
-        "description": "",
-        "homepage": "",
-        "language": null,
-        "stars": 0,
-        "forks": 0,
-        "isFork": false,
-        "isArchived": true,
-        "updatedAt": "2026-06-02T00:02:30Z"
       }
     ]
   },

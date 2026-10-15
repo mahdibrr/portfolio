@@ -201,9 +201,11 @@ assert.equal(
   snapshot.search.clicks,
   "Search total matches the reported daily values",
 );
-assert.equal(
-  snapshot.github.repositories.length,
-  snapshot.github.profile.publicRepositories,
+assert(
+  snapshot.github.repositories.every((repo) => !repo.isArchived) &&
+    snapshot.github.repositories.length <=
+      snapshot.github.profile.publicRepositories,
+  "Repository directory lists active public repositories only",
 );
 assert(
   !/access_token|refresh_token|private_key|client_secret|CLOUDFLARE_API_TOKEN/i.test(
